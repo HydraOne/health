@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.geny.health.mapper.OrderMapper">
+  <resultMap id="BaseResultMap" type="cn.geny.health.po.Order">
+    <!--@mbg.generated-->
+    <!--@Table `order`-->
+    <id column="ORDER_ID" jdbcType="VARCHAR" property="orderId" />
+    <result column="CHECK_ID" jdbcType="VARCHAR" property="checkId" />
+    <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="TRADE_ID" jdbcType="VARCHAR" property="tradeId" />
+    <result column="AMOUNT" jdbcType="VARCHAR" property="amount" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="PARAM1" jdbcType="VARCHAR" property="param1" />
+    <result column="PARAM2" jdbcType="VARCHAR" property="param2" />
+    <result column="PARAM3" jdbcType="VARCHAR" property="param3" />
+    <result column="PARAM4" jdbcType="VARCHAR" property="param4" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ORDER_ID, CHECK_ID, USER_ID, TRADE_ID, AMOUNT, CREATE_TIME, UPDATE_TIME, `STATUS`, 
+    PARAM1, PARAM2, PARAM3, PARAM4
+  </sql>
+</mapper>

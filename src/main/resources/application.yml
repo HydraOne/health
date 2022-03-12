@@ -1,0 +1,36 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: health
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/zhkycs
+    #    url: jdbc:mysql://81.68.219.205:3306/ainone
+    username: root
+    password: Passw0rd
+  mail:
+    host: smtp.qq.com
+    port: 587
+    username: hydraone123@qq.com
+    password: wfyfixpnuzupbchc
+    default-encoding: utf-8
+    properties:
+      mail:
+        smtp:
+          socketFactoryClass: javax.net.ssl.SSLSocketFactory
+        #表示开启 DEBUG 模式，这样，邮件发送过程的日志会在控制台打印出来，方便排查错误
+        debug: false
+  redis:
+    #    host: 192.168.117.129
+    host: 81.68.219.205
+    port: 6379
+    password: Passw0rd
+#debug: false
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#logging:
+#  level:
+#    cn.geny.ainone.account.mapper: debug
+#    org.springframework.jdbc.datasource.DataSourceTransactionManager: debug
