@@ -2,11 +2,10 @@ package cn.geny.health.controller;
 
 import cn.geny.health.common.AjaxResult;
 import cn.geny.health.common.RedisCache;
+import cn.geny.health.model.LoginBody;
 import cn.geny.health.service.impl.CaptchaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
@@ -27,11 +26,20 @@ public class CaptchaController {
     /**
      * 生成验证码
      */
-    @GetMapping("/captchaCode/{email}")
-    public AjaxResult getCode(@PathVariable("email") String email) throws IOException {
-        AjaxResult ajax = AjaxResult.success();
-        String uuid = captchaService.captchaCodeSender(email);
-        ajax.put("uuid", uuid);
-        return ajax;
+    @GetMapping("/sendCaptchaCode/{token}")
+    public AjaxResult getCode(@PathVariable("token") String token) throws IOException {
+        String captchaCode = captchaService.captchaCodeSender(token);
+        return AjaxResult.success();
+    }
+
+    /**
+     * 校验验证码
+     */
+    @PostMapping("/checkCaptchaCode")
+    public AjaxResult getCode(@RequestBody LoginBody loginBody){
+        if (captchaService.checkCaptchaCode(loginBody.getToken(), loginBody.getCode())) {
+            return AjaxResult.success();
+        }
+        return AjaxResult.error();
     }
 }

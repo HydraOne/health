@@ -26,7 +26,7 @@ public class Order {
     /**
      * 订单ID
      */
-    @TableId(value = "ORDER_ID", type = IdType.INPUT)
+    @TableId(value = "ORDER_ID", type = IdType.ASSIGN_UUID)
     private String orderId;
 
     /**

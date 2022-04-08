@@ -26,7 +26,7 @@ public class Role {
     /**
      * 角色ID
      */
-    @TableId(value = "ROLE_ID", type = IdType.INPUT)
+    @TableId(value = "ROLE_ID", type = IdType.ASSIGN_UUID)
     private String roleId;
 
     /**

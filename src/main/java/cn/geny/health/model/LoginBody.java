@@ -22,5 +22,5 @@ public class LoginBody {
     /**
      * 唯一标识
      */
-    private String uuid = "";
+    private String token = "";
 }

@@ -3,12 +3,14 @@ package cn.geny.health.controller;
 import cn.geny.health.common.AjaxResult;
 import cn.geny.health.common.QueryProducer;
 import cn.geny.health.model.QueryBody;
-import cn.geny.health.po.User;
+import cn.geny.health.po.Account;
 import cn.geny.health.service.impl.UserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  * TODO
@@ -34,22 +36,30 @@ public class UserController {
     }
 
     @GetMapping("/page")
-    public AjaxResult getPageUsers(@RequestBody QueryBody<User> queryBody) {
-        Page<User> page = new Page<>(queryBody.getStart(), queryBody.getSize());
-        QueryWrapper<User> queryWrapper = QueryProducer.me().executeQuery(queryBody);
+    public AjaxResult getPageUsers(@RequestBody QueryBody<Account> queryBody) {
+        Page<Account> page = new Page<>(queryBody.getStart(), queryBody.getSize());
+        QueryWrapper<Account> queryWrapper = QueryProducer.me().generatePageQuery(queryBody, Account.class);
         return AjaxResult.success(userService.page(page, queryWrapper));
     }
 
     @DeleteMapping("/delete")
-    public AjaxResult getDeleteUsers(@RequestBody QueryBody<User> queryBody) {
-        Page<User> page = new Page<>(queryBody.getStart(), queryBody.getSize());
-        QueryWrapper<User> queryWrapper = QueryProducer.me().executeQuery(queryBody);
+    public AjaxResult getDeleteUsers(@RequestBody QueryBody<Account> queryBody) {
+        Page<Account> page = new Page<>(queryBody.getStart(), queryBody.getSize());
+        QueryWrapper<Account> queryWrapper = QueryProducer.me().generatePageQuery(queryBody, Account.class);
         return AjaxResult.success(userService.page(page, queryWrapper));
     }
 
+    @PostMapping("/update")
+    public AjaxResult updateUserInfo(@RequestBody Map params) {
+        String photoURL = (String) params.get("photoURL");
+        String name = (String) params.get("path");
+        String preview = (String) params.get("preview");
+        return null;
+    }
+
     @PutMapping("/add")
-    public AjaxResult putUser(@RequestBody User user) {
-        boolean save = userService.save(user);
+    public AjaxResult putUser(@RequestBody Account account) {
+        boolean save = userService.save(account);
         if (save) {
             return AjaxResult.success().put("test", null);
         }

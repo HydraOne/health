@@ -1,7 +1,6 @@
 package cn.geny.health.po;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,16 +18,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName(value = "user_role")
-public class UserRole {
+public class AccountRole {
     /**
      * 用户ID
      */
-    @TableId(value = "USER_ID", type = IdType.INPUT)
+    @TableField(value = "USER_ID")
     private String userId;
 
     /**
      * 角色ID
      */
-    @TableId(value = "ROLE_ID", type = IdType.INPUT)
+    @TableField(value = "ROLE_ID")
     private String roleId;
 }

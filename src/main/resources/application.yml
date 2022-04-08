@@ -1,5 +1,8 @@
 server:
   port: 8080
+  servlet:
+    context-path: /api
+
 spring:
   application:
     name: health
@@ -12,11 +15,16 @@ spring:
     host: smtp.qq.com
     port: 587
     username: hydraone123@qq.com
-    password: wfyfixpnuzupbchc
+    password: infdnbmzfdvdbcdj
+#    username: m72875509qiaonuo@163.com
+#    password: YSXJFNOIFXAIRUJT
     default-encoding: utf-8
     properties:
       mail:
         smtp:
+#          auth: true
+#          starttls:
+#            enable: false
           socketFactoryClass: javax.net.ssl.SSLSocketFactory
         #表示开启 DEBUG 模式，这样，邮件发送过程的日志会在控制台打印出来，方便排查错误
         debug: false
@@ -25,12 +33,24 @@ spring:
     host: 81.68.219.205
     port: 6379
     password: Passw0rd
-#debug: false
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+
+debug: false
 
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
 #logging:
 #  level:
 #    cn.geny.ainone.account.mapper: debug
 #    org.springframework.jdbc.datasource.DataSourceTransactionManager: debug
+
+#minIO 地址
+minio:
+  endpoint: http://192.168.117.130:19000
+  accessKey: root
+  secretKey: Passw0rd

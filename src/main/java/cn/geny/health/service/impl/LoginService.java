@@ -1,10 +1,15 @@
 package cn.geny.health.service.impl;
 
+import cn.geny.health.bo.User;
 import cn.geny.health.common.RedisCache;
 import cn.geny.health.constant.Constants;
-import cn.geny.health.po.User;
+import cn.geny.health.po.Account;
+import cn.geny.health.utils.UUIDUtil;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.Objects;
 
 /**
  * TODO
@@ -20,17 +25,20 @@ public class LoginService {
     @Autowired
     private UserService userService;
 
-    public String login(String username, String password, String code, String uuid) {
+    public String login(String username, String password) {
 
 //        boolean captchaOnOff = configService.selectCaptchaOnOff();
         boolean captchaOnOff = false;
 //        // 验证码开关
-        if (captchaOnOff) {
-            validateCaptcha(username, code, uuid);
-        }
+//        if (captchaOnOff) {
+//            validateCaptcha(username, code, uuid);
+//        }
 //        // 用户验证
 //        Authentication authentication = null;
-        User user = userService.validateAccount(username, password);
+        Account account = userService.validateAccount(username, password);
+        String token = UUIDUtil.generateUUID();
+//        redisCache.setCacheObject(Constants.LOGIN_TOKEN_KEY + token, account.getId(), Constants.CAPTCHA_EXPIRATION, TimeUnit.MINUTES);
+        redisCache.setCacheObject(Constants.LOGIN_TOKEN_KEY + token, account.getId());
 //        try
 //        {
 //            // 该方法会去调用UserDetailsServiceImpl.loadUserByUsername
@@ -41,7 +49,7 @@ public class LoginService {
 //        {
 //            if (e instanceof BadCredentialsException)
 //            {
-//                AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("user.password.not.match")));
+//                AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("account.password.not.match")));
 //                throw new UserPasswordNotMatchException();
 //            }
 //            else
@@ -50,11 +58,23 @@ public class LoginService {
 //                throw new ServiceException(e.getMessage());
 //            }
 //        }
-//        AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_SUCCESS, MessageUtils.message("user.login.success")));
+//        AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_SUCCESS, MessageUtils.message("account.login.success")));
 //        LoginUser loginUser = (LoginUser) authentication.getPrincipal();
 //        recordLoginInfo(loginUser.getUserId());
 //        // 生成token
-        return user.getId();
+        return token;
+    }
+
+    public User getUser(String token){
+        String uid = redisCache.getCacheObject(Constants.LOGIN_TOKEN_KEY+token);
+        Account account = userService.getById(uid);
+        User user = null;
+        if (!Objects.isNull(account)){
+            user = new User();
+            BeanUtils.copyProperties(account,user);
+            user.setPhotoURL("http://192.168.117.130:19000/demo/" + user.getIcon());
+        }
+        return user;
     }
 
     /**

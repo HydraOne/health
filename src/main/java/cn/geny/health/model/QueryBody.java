@@ -1,9 +1,12 @@
 package cn.geny.health.model;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Data;
 
-import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * TODO
@@ -21,9 +24,33 @@ public class QueryBody<E> {
     public final static String MAX_FIELD = "maxField";
     public final static String MIN_FIELD = "minField";
     public final static String NOT_EQUALS_FIELD = "notEqualsField";
+    public final static String TIME_FIELD = "timeField";
     public final static String START_FIELD = "start";
     public final static String END_FIELD = "end";
-    int start;
-    int size;
-    HashMap<String, Map> conditions;
+    private final static Set<String> singleFields;
+
+    static {
+        singleFields = new HashSet<>();
+        singleFields.add(EQUALS_FIELD);
+        singleFields.add(NOT_EQUALS_FIELD);
+        singleFields.add(LIKE_FIELD);
+        singleFields.add(MAX_FIELD);
+        singleFields.add(MIN_FIELD);
+    }
+
+    public static boolean isSingleField(String filedName) {
+        return singleFields.contains(filedName);
+    }
+
+    @JsonAlias("start")
+    private int start;
+
+    @JsonAlias("size")
+    private int size;
+
+    @JsonAlias("conditions")
+    private Map<String, Map> conditions;
+
+    @JsonAlias("timeField")
+    private List<String> timeFields;
 }
