@@ -1,6 +1,9 @@
 package cn.geny.health.common;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import cn.geny.health.utils.SpringUtils;
+import org.apache.ibatis.cache.Cache;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.BoundSetOperations;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -9,6 +12,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * spring redis 工具类
@@ -17,9 +22,11 @@ import java.util.concurrent.TimeUnit;
  **/
 @SuppressWarnings(value = {"unchecked", "rawtypes"})
 @Component
-public class RedisCache {
-    @Autowired
-    public RedisTemplate redisTemplate;
+public class RedisCache implements Cache {
+
+    Logger logger = LoggerFactory.getLogger(RedisCache.class);
+
+    public RedisTemplate redisTemplate = SpringUtils.getBean("redisTemplate");
 
     /**
      * 缓存基本的对象，Integer、String、实体类等
@@ -220,4 +227,100 @@ public class RedisCache {
     public Collection<String> keys(final String pattern) {
         return redisTemplate.keys(pattern);
     }
+
+
+    /**
+     * 读写锁
+     */
+    private final ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
+
+
+    /**
+     * ID,获取缓存对象的唯一标识
+     */
+    private String id;
+
+    public RedisCache(){
+    }
+
+    public RedisCache(String id) {
+        if (id == null) {
+            throw new IllegalArgumentException("缓存实例需要一个id!");
+        } else {
+            logger.info("开启Redis缓存: id = {}", id);
+            this.id = id;
+        }
+    }
+
+
+    @Override
+    public String getId() {
+        return this.id;
+    }
+
+    @Override
+    public int getSize() {
+        try {
+            Long size = redisTemplate.opsForHash().size(this.id.toString());
+            logger.info("Redis缓存大小: id = {}, size = {}", id, size);
+            return size.intValue();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    @Override
+    public void putObject(final Object key, final Object value) {
+        try {
+            logger.info("设置Redis缓存: id = {}, key = {}, value = {}", id, key, value);
+            redisTemplate.opsForHash().put(this.id.toString(), key.toString(), value);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public Object getObject(final Object key) {
+        try {
+            Object hashVal = redisTemplate.opsForHash().get(this.id.toString(), key.toString());
+            logger.info("获取Redis缓存: id = {}, key = {}, hashVal = {}", id, key, hashVal);
+            return hashVal;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public Object removeObject(final Object key) {
+        try {
+            redisTemplate.opsForHash().delete(this.id.toString(), key.toString());
+            logger.info("移除Redis缓存: id = {}, key = {}", id, key);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public void clear() {
+        try {
+            redisTemplate.delete(this.id.toString());
+            logger.info("清空Redis缓存: id = {}", id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public ReadWriteLock getReadWriteLock() {
+        return this.readWriteLock;
+    }
+
+    @Override
+    public String toString() {
+        return "RedisCache {" + this.id + "}";
+    }
+
 }

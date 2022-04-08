@@ -22,7 +22,7 @@ public class GlobalExceptionHandler
     @ExceptionHandler(RuntimeException.class)
     public AjaxResult handleGlobalRuntimeExpetion(RuntimeException e,HttpServletRequest request){
         String requestURI = request.getRequestURI();
-        log.error("请求地址'{}''{}'", requestURI, e);
+        log.error("请求地址'{}'", requestURI, e);
         return AjaxResult.error(e.getMessage());
     }
 }

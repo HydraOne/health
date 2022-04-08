@@ -29,7 +29,7 @@ spring:
         #表示开启 DEBUG 模式，这样，邮件发送过程的日志会在控制台打印出来，方便排查错误
         debug: false
   redis:
-    #    host: 192.168.117.129
+#    host: 192.168.117.130
     host: 81.68.219.205
     port: 6379
     password: Passw0rd
@@ -44,6 +44,8 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
+# mybatis-plus 二级缓存
+    cache-enabled: false
 #logging:
 #  level:
 #    cn.geny.ainone.account.mapper: debug
@@ -54,3 +56,5 @@ minio:
   endpoint: http://192.168.117.130:19000
   accessKey: root
   secretKey: Passw0rd
+
+
