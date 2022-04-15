@@ -8,14 +8,17 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 import java.util.List;
 
-/** 
+/**
  * TODO
+ *
  * @author wangjiahao
  * @date 2022/3/13 0:46
  */
+
 /**
-    * 检查实体
-    */
+ * 检查实体
+ * @author hydraone
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,8 +27,8 @@ public class CheckEntity {
     /**
      * 检查实体ID
      */
-    @TableId(value = "CHECK_ID", type = IdType.ASSIGN_UUID)
-    private String checkId;
+    @TableId(value = "ID", type = IdType.ASSIGN_UUID)
+    private String id;
 
     /**
      * 名称
@@ -48,25 +51,25 @@ public class CheckEntity {
     /**
      * 创建者
      */
-    @TableField(value = "CREATE_BY")
+    @TableField(value = "CREATE_BY", fill = FieldFill.INSERT)
     private String createBy;
 
     /**
      * 创建时间
      */
-    @TableField(value = "CREATE_TIME",fill = FieldFill.INSERT)
+    @TableField(value = "CREATE_TIME", fill = FieldFill.INSERT)
     private Date createTime;
 
     /**
      * 更新者
      */
-    @TableField(value = "UPDATE_BY")
+    @TableField(value = "UPDATE_BY", fill = FieldFill.INSERT_UPDATE)
     private String updateBy;
 
     /**
      * 更新时间
      */
-    @TableField(value = "UPDATE_TIME",fill = FieldFill.INSERT_UPDATE)
+    @TableField(value = "UPDATE_TIME", fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
     /**
@@ -99,9 +102,18 @@ public class CheckEntity {
     @TableField(value = "PARAM4")
     private String param4;
 
-    @TableField(exist = false)
-    private List<CheckEntity> groups;
+//    @TableField(exist = false)
+//    private List<CheckEntity> groups;
+//
+//    @TableField(exist = false)
+//    private List<CheckEntity> items;
 
     @TableField(exist = false)
-    private List<CheckEntity> items;
+    private List<String> groups;
+
+    @TableField(exist = false)
+    private List<String> items;
+
+    @TableField(exist = false)
+    private List<String> children;
 }

@@ -32,14 +32,14 @@ public class MediaFile {
     /**
      * 创建者
      */
-    @TableField(value = "CREATE_BY")
+    @TableField(value = "CREATE_BY",fill = FieldFill.INSERT)
     private String createBy;
 
     /**
      * 创建日期
      */
-    @TableField(value = "CREATE_DATE",fill = FieldFill.INSERT)
-    private Date createDate;
+    @TableField(value = "CREATE_TIME",fill = FieldFill.INSERT)
+    private Date createTime;
 
     /**
      * 状态

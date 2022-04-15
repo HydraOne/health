@@ -7,11 +7,11 @@
     <id column="ID" jdbcType="VARCHAR" property="id" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
-    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
     <result column="STATUS" jdbcType="VARCHAR" property="status" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    ID, `NAME`, CREATE_BY, CREATE_DATE, `STATUS`
+    ID, `NAME`, CREATE_BY, CREATE_TIME, `STATUS`
   </sql>
 </mapper>

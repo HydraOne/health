@@ -1,5 +1,7 @@
 package cn.geny.health.config;
 
+import cn.geny.health.po.Account;
+import cn.geny.health.utils.SecurityUtils;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
@@ -14,6 +16,9 @@ public class InsertOrUpdateDateHandler implements MetaObjectHandler {
     public void insertFill(MetaObject metaObject) {
         this.setFieldValByName("createTime", new Date(), metaObject);
         this.setFieldValByName("updateTime", new Date(), metaObject);
+        Account currentUser = SecurityUtils.getLoginUser();
+        this.setFieldValByName("createBy", currentUser.getId(),metaObject);
+        this.setFieldValByName("updateBy", currentUser.getId(),metaObject);
     }
 
     //修改时的填充策略

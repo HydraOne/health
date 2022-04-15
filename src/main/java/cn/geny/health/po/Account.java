@@ -49,6 +49,7 @@ public class Account {
      * 用户头像
      */
     @TableField(value = "ICON")
+    @JsonIgnore
     private String icon;
 
     /**

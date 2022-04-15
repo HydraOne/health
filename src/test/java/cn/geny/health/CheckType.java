@@ -10,4 +10,6 @@ public enum CheckType {
     Item,
     Group,
     Plan;
+
+
 }

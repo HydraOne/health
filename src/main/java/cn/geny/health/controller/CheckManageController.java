@@ -9,6 +9,7 @@ import cn.geny.health.service.impl.CheckCheckService;
 import cn.geny.health.service.impl.CheckEntityService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.apache.commons.lang3.EnumUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,8 +30,10 @@ public class CheckManageController {
 
     @PutMapping("/put")
     public AjaxResult putCheck(@RequestBody CheckEntity checkEntity) {
-        if (checkEntityService.save(checkEntity)) {
-            return AjaxResult.success();
+        if (EnumUtils.isValidEnum(CheckType.class, checkEntity.getType())) {
+            if (checkEntityService.save(checkEntity)) {
+                return AjaxResult.success();
+            }
         }
         return AjaxResult.error();
     }
@@ -80,7 +83,7 @@ public class CheckManageController {
 
     @GetMapping("/list")
     public AjaxResult list() {
-        return null;
+        return AjaxResult.success(checkEntityService.list());
     }
 
     @GetMapping("/page")
