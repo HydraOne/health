@@ -72,7 +72,7 @@ public class LoginService {
         if (!Objects.isNull(account)){
             user = new User();
             BeanUtils.copyProperties(account,user);
-            user.setPhotoURL("http://192.168.117.130:19000/demo/" + user.getIcon());
+            user.setPhotoURL("http://81.68.219.205:19000/demo/" + user.getIcon());
         }
         return user;
     }

@@ -35,32 +35,10 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
         String uuid = UUIDUtil.generateUUID();
         List<CheckCheck> list = new ArrayList<>();
         checkEntity.setId(uuid);
-        CheckType type = EnumUtils.getEnum(CheckType.class, checkEntity.getType());
-        switch (type) {
-            case Plan: {
-//                List<CheckEntity> items = checkEntity.getItems();
-                List<String> items = checkEntity.getItems();
-                if (items != null) {
-//                    items.forEach(childCheckEntity -> list.add(new CheckCheck(uuid, childCheckEntity.getId())));
-                    items.forEach(itemId -> list.add(new CheckCheck(uuid, itemId)));
-                }
-                List<String> groupsId = checkEntity.getGroups();
-                if (groupsId != null) {
-//                    groupsId.forEach(childCheckEntity -> list.add(new CheckCheck(uuid, childCheckEntity.getId())));
-                    groupsId.forEach(groupId -> list.add(new CheckCheck(uuid, groupId)));
-                }
-                break;
-            }
-            case Group: {
-                List<String> items = checkEntity.getItems();
-                if (items != null) {
-                    items.forEach(itemId -> list.add(new CheckCheck(uuid, itemId)));
-                }
-                break;
-            }
-            default: {
-                break;
-            }
+        CheckType type = EnumUtils.getEnum(CheckType.class,checkEntity.getType());
+        if (!type.equals(CheckType.Item)){
+            List<String> children = checkEntity.getChildren();
+            children.forEach(itemId -> list.add(new CheckCheck(uuid, itemId)));
         }
         return super.save(checkEntity) && (list.size() == 0 || checkCheckService.saveBatch(list));
     }
@@ -68,7 +46,7 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
     public CheckEntity getCheckEntity(String id) {
         CheckEntity checkEntity = this.getById(id);
         List<CheckCheck> list = checkCheckService.list(new QueryWrapper<CheckCheck>().eq("check_id", id));
-        if (Objects.nonNull(list)) {
+        if (Objects.nonNull(list)&&list.size()!=0) {
             List<String> listIds = list.stream().map(CheckCheck::getCheckCid).collect(Collectors.toList());
             List<CheckEntity> checkEntities = this.listByIds(listIds);
 //            Map<String, List<CheckEntity>> map = checkEntities.stream().collect(Collectors.groupingBy(CheckEntity::getType));
