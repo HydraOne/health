@@ -44,6 +44,15 @@ public class UserService extends ServiceImpl<AccountMapper, Account> implements 
         return currentAccount;
     }
 
+    public Boolean validateRegisterAccount(String uname){
+
+        Account currentAccount = getUserByUname(uname);
+        if (currentAccount!=null){
+            throw new RuntimeException("账号以存在,无法注册");
+        }
+        return  true;
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
     {
