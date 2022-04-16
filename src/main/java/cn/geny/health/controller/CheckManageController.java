@@ -7,11 +7,14 @@ import cn.geny.health.model.QueryBody;
 import cn.geny.health.po.CheckEntity;
 import cn.geny.health.service.impl.CheckCheckService;
 import cn.geny.health.service.impl.CheckEntityService;
+import cn.geny.health.service.impl.FileService;
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.commons.lang3.EnumUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * TODO
@@ -28,10 +31,15 @@ public class CheckManageController {
     @Autowired
     private CheckCheckService checkCheckService;
 
+    @Autowired
+    private FileService fileService;
+
     @PutMapping("/put")
-    public AjaxResult putCheck(@RequestBody CheckEntity checkEntity) {
+    public AjaxResult putCheck(@RequestParam("checkEntity") String checkEntityStr,MultipartFile[] images) {
+        CheckEntity checkEntity = JSONObject.parseObject(checkEntityStr, CheckEntity.class);
+
         if (EnumUtils.isValidEnum(CheckType.class, checkEntity.getType())) {
-            if (checkEntityService.save(checkEntity)) {
+            if (checkEntityService.save(checkEntity,images)) {
                 return AjaxResult.success();
             }
         }

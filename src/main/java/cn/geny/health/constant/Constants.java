@@ -1,11 +1,15 @@
 package cn.geny.health.constant;
 
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 /**
  * 通用常量信息
  *
  * @author ruoyi
  */
+@Component
 public class Constants {
     /**
      * UTF-8 字符集
@@ -152,4 +156,14 @@ public class Constants {
      */
     public static final String[] JOB_ERROR_STR = {"java.net.URL", "javax.naming.InitialContext", "org.yaml.snakeyaml",
             "org.springframework.jndi"};
+
+    /**
+     * MinioURI
+     */
+    public static String MINIO_URI;
+
+    @Value("${minio.endpoint}")
+    public void setMinioUri(String key) {
+        Constants.MINIO_URI = key;
+    }
 }

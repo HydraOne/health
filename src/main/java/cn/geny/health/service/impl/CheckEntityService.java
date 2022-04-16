@@ -10,11 +10,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.lang3.EnumUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -29,6 +27,10 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
     @Autowired
     CheckCheckService checkCheckService;
 
+    @Autowired
+    FileService fileService;
+
+
 
     @Override
     public boolean save(CheckEntity checkEntity) {
@@ -36,6 +38,25 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
         List<CheckCheck> list = new ArrayList<>();
         checkEntity.setId(uuid);
         CheckType type = EnumUtils.getEnum(CheckType.class,checkEntity.getType());
+        if (!type.equals(CheckType.Item)){
+            List<String> children = checkEntity.getChildren();
+            children.forEach(itemId -> list.add(new CheckCheck(uuid, itemId)));
+        }
+        return super.save(checkEntity) && (list.size() == 0 || checkCheckService.saveBatch(list));
+    }
+
+    public boolean save(CheckEntity checkEntity, MultipartFile[] images) {
+        String uuid = UUIDUtil.generateUUID();
+        List<CheckCheck> list = new ArrayList<>();
+        checkEntity.setId(uuid);
+        CheckType type = EnumUtils.getEnum(CheckType.class,checkEntity.getType());
+
+        List<String> uploadSuccessImgs = new ArrayList<>();
+        Arrays.stream(images).forEach(image->{
+            uploadSuccessImgs.add(fileService.uploadMedia(image).getId());
+        });
+        checkEntity.setParam1(String.join(",",uploadSuccessImgs));
+
         if (!type.equals(CheckType.Item)){
             List<String> children = checkEntity.getChildren();
             children.forEach(itemId -> list.add(new CheckCheck(uuid, itemId)));

@@ -1,12 +1,22 @@
 package cn.geny.health.po;
 
+import cn.geny.health.constant.Constants;
 import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * TODO
@@ -17,6 +27,7 @@ import java.util.List;
 
 /**
  * 检查实体
+ *
  * @author hydraone
  */
 @Data
@@ -82,12 +93,14 @@ public class CheckEntity {
      * 预留字段
      */
     @TableField(value = "PARAM1")
+    @JsonIgnore
     private String param1;
 
     /**
      * 预留字段
      */
     @TableField(value = "PARAM2")
+    @JsonProperty("defaultImage")
     private String param2;
 
     /**
@@ -102,11 +115,22 @@ public class CheckEntity {
     @TableField(value = "PARAM4")
     private String param4;
 
-//    @TableField(exist = false)
-//    private List<CheckEntity> groups;
-//
-//    @TableField(exist = false)
-//    private List<CheckEntity> items;
+    @JsonGetter("images")
+    public List<String> getImages() {
+        String[] images = StringUtils.split(param1, ',');
+        return Arrays.stream(images).map(item -> Constants.MINIO_URI + "/demo/" + item).collect(Collectors.toList());
+    }
+
+    @JsonGetter("description")
+    public String getProductDescription() {
+        Document document = Jsoup.parse(description);
+        Elements imgs = document.getElementsByTag("img");
+        imgs.forEach(img -> {
+            img.attr("src", Constants.MINIO_URI + "/demo/" + img.attr("src"));
+        });
+        return document.outerHtml();
+    }
+
 
     @TableField(exist = false)
     private List<String> groups;
