@@ -1,5 +1,6 @@
 package cn.geny.health.service.impl;
 
+import cn.geny.health.bo.Summary;
 import cn.geny.health.constant.CheckType;
 import cn.geny.health.mapper.CheckEntityMapper;
 import cn.geny.health.po.CheckCheck;
@@ -12,7 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -30,6 +34,8 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
     @Autowired
     FileService fileService;
 
+    @Autowired
+    RatingService ratingService;
 
 
     @Override
@@ -66,22 +72,29 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
 
     public CheckEntity getCheckEntity(String id) {
         CheckEntity checkEntity = this.getById(id);
+        if (Objects.isNull(checkEntity)){
+            return null;
+        }
         List<CheckCheck> list = checkCheckService.list(new QueryWrapper<CheckCheck>().eq("check_id", id));
+        Summary summary = ratingService.getSummaryByPid(id);
+        checkEntity.setSummary(summary);
         if (Objects.nonNull(list)&&list.size()!=0) {
             List<String> listIds = list.stream().map(CheckCheck::getCheckCid).collect(Collectors.toList());
-            List<CheckEntity> checkEntities = this.listByIds(listIds);
+//            List<CheckEntity> checkEntities = this.listByIds(listIds);
+////            Map<String, List<CheckEntity>> map = checkEntities.stream().collect(Collectors.groupingBy(CheckEntity::getType));
+////            checkEntity.setItems(map.get(CheckType.Item.name()));
+////            checkEntity.setGroups(map.get(CheckType.Group.name()));
 //            Map<String, List<CheckEntity>> map = checkEntities.stream().collect(Collectors.groupingBy(CheckEntity::getType));
-//            checkEntity.setItems(map.get(CheckType.Item.name()));
-//            checkEntity.setGroups(map.get(CheckType.Group.name()));
-            Map<String, List<CheckEntity>> map = checkEntities.stream().collect(Collectors.groupingBy(CheckEntity::getType));
-            List<CheckEntity> items = map.get(CheckType.Item.name());
-            List<CheckEntity> groups = map.get(CheckType.Group.name());
-            if (Objects.nonNull(items)){
-                checkEntity.setItems(items.stream().map(CheckEntity::getId).collect(Collectors.toList()));
-            }
-            if (Objects.nonNull(groups)){
-                checkEntity.setGroups(groups.stream().map(CheckEntity::getId).collect(Collectors.toList()));
-            }
+//            List<CheckEntity> items = map.get(CheckType.Item.name());
+//            List<CheckEntity> groups = map.get(CheckType.Group.name());
+//            if (Objects.nonNull(items)){
+//                checkEntity.setItems(items.stream().map(CheckEntity::getId).collect(Collectors.toList()));
+//            }
+//            if (Objects.nonNull(groups)){
+//                checkEntity.setGroups(groups.stream().map(CheckEntity::getId).collect(Collectors.toList()));
+//            }
+            checkEntity.setChildren(listIds);
+
         }
         return checkEntity;
     }

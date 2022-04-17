@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.geny.health.mapper.RatingMapper">
+  <resultMap id="BaseResultMap" type="cn.geny.health.po.Rating">
+    <!--@mbg.generated-->
+    <!--@Table rating-->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATR_TIME" jdbcType="TIMESTAMP" property="creatrTime" />
+    <result column="REATING" jdbcType="INTEGER" property="reating" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="PARAM1" jdbcType="VARCHAR" property="param1" />
+    <result column="PARAM2" jdbcType="VARCHAR" property="param2" />
+    <result column="PARAM3" jdbcType="VARCHAR" property="param3" />
+    <result column="PRAM4" jdbcType="VARCHAR" property="pram4" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, CONTENT, CREATE_BY, CREATR_TIME, REATING, `STATUS`, PARAM1, PARAM2, PARAM3, PRAM4
+  </sql>
+</mapper>

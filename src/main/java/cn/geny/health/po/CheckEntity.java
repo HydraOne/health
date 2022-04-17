@@ -1,5 +1,6 @@
 package cn.geny.health.po;
 
+import cn.geny.health.bo.Summary;
 import cn.geny.health.constant.Constants;
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
@@ -114,6 +115,9 @@ public class CheckEntity {
      */
     @TableField(value = "PARAM4")
     private String param4;
+
+    @TableField(exist = false)
+    private Summary summary;
 
     @JsonGetter("images")
     public List<String> getImages() {

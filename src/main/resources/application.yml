@@ -4,11 +4,15 @@ server:
     context-path: /api
 
 spring:
+# 新增切换开发环境
+  profiles:
+    active: dev
+
   application:
     name: health
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/zhkycs
-#    url: jdbc:mysql://81.68.219.205:3306/zhkscs
+#    url: jdbc:mysql://127.0.0.1:3306/zhkycs
+    url: jdbc:mysql://81.68.219.205:3306/zhkscs
     username: root
     password: Passw0rd
   mail:
@@ -45,7 +49,7 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
 # mybatis-plus 二级缓存
-    cache-enabled: false
+    cache-enabled: true
 #logging:
 #  level:
 #    cn.geny.ainone.account.mapper: debug
@@ -53,7 +57,7 @@ mybatis-plus:
 
 #minIO 地址
 minio:
-#  endpoint: http://81.68.219.205:19000
-  endpoint: http://192.168.117.130:19000
+  endpoint: http://81.68.219.205:19000
+#  endpoint: http://192.168.117.130:19000
   accessKey: root
   secretKey: Passw0rd

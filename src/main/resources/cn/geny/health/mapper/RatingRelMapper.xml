@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.geny.health.mapper.RatingRelMapper">
+  <resultMap id="BaseResultMap" type="cn.geny.health.po.RatingRel">
+    <!--@mbg.generated-->
+    <!--@Table rating_rel-->
+    <result column="PID" jdbcType="VARCHAR" property="pid" />
+    <result column="RID" jdbcType="VARCHAR" property="rid" />
+    <result column="TYPE" jdbcType="VARCHAR" property="type" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    PID, RID, `TYPE`
+  </sql>
+</mapper>
