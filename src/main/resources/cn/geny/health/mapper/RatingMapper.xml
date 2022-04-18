@@ -5,18 +5,19 @@
     <!--@mbg.generated-->
     <!--@Table rating-->
     <id column="ID" jdbcType="VARCHAR" property="id" />
-    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="COMMENT" jdbcType="VARCHAR" property="comment" />
     <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
-    <result column="CREATR_TIME" jdbcType="TIMESTAMP" property="creatrTime" />
-    <result column="REATING" jdbcType="INTEGER" property="reating" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="REATING" jdbcType="INTEGER" property="rating" />
     <result column="STATUS" jdbcType="VARCHAR" property="status" />
     <result column="PARAM1" jdbcType="VARCHAR" property="param1" />
     <result column="PARAM2" jdbcType="VARCHAR" property="param2" />
     <result column="PARAM3" jdbcType="VARCHAR" property="param3" />
     <result column="PRAM4" jdbcType="VARCHAR" property="pram4" />
+    <result column="PID" jdbcType="VARCHAR" property="pid" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    ID, CONTENT, CREATE_BY, CREATR_TIME, REATING, `STATUS`, PARAM1, PARAM2, PARAM3, PRAM4
+    ID, COMMENT, CREATE_BY, CREATE_TIME, REATING, `STATUS`, PARAM1, PARAM2, PARAM3, PRAM4, PID
   </sql>
 </mapper>

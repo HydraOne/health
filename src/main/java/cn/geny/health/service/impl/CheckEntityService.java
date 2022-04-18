@@ -5,6 +5,8 @@ import cn.geny.health.constant.CheckType;
 import cn.geny.health.mapper.CheckEntityMapper;
 import cn.geny.health.po.CheckCheck;
 import cn.geny.health.po.CheckEntity;
+import cn.geny.health.po.Rating;
+import cn.geny.health.utils.SecurityUtils;
 import cn.geny.health.utils.UUIDUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -36,6 +38,9 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
 
     @Autowired
     RatingService ratingService;
+
+    @Autowired
+    RatingRelService ratingRelService;
 
 
     @Override
@@ -76,7 +81,7 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
             return null;
         }
         List<CheckCheck> list = checkCheckService.list(new QueryWrapper<CheckCheck>().eq("check_id", id));
-        Summary summary = ratingService.getSummaryByPid(id);
+        Summary summary = ratingService.getSummary(id);
         checkEntity.setSummary(summary);
         if (Objects.nonNull(list)&&list.size()!=0) {
             List<String> listIds = list.stream().map(CheckCheck::getCheckCid).collect(Collectors.toList());
@@ -97,5 +102,21 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
 
         }
         return checkEntity;
+    }
+
+    public Boolean toCheckEntityAddReview(String checkEntityId, Rating rating){
+        CheckEntity checkEntity = this.getCheckEntity(checkEntityId);
+        boolean saveIsSuccess = false;
+        if (rating.getRating()==null){
+            throw new RuntimeException("请填入评分");
+        }
+        if (Objects.nonNull(checkEntity)){
+            rating.setPid(checkEntityId);
+            String createBy = checkEntity.getCreateBy();
+            if (createBy.equals(SecurityUtils.getUserId())){
+                saveIsSuccess = ratingService.save(rating);
+            }
+        }
+        return saveIsSuccess;
     }
 }

@@ -8,7 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -79,6 +78,6 @@ public class UserService extends ServiceImpl<AccountMapper, Account> implements 
     public UserDetails createLoginUser(Account user)
     {
         List<GrantedAuthority> auths = AuthorityUtils.commaSeparatedStringToAuthorityList("role");
-        return new User(user.getName(),user.getPwd(),auths);
+        return new org.springframework.security.core.userdetails.User(user.getName(),user.getPwd(),auths);
     }
 }

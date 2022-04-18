@@ -4,12 +4,10 @@ import cn.geny.health.bo.User;
 import cn.geny.health.common.RedisCache;
 import cn.geny.health.constant.Constants;
 import cn.geny.health.po.Account;
+import cn.geny.health.utils.SecurityUtils;
 import cn.geny.health.utils.UUIDUtil;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.Objects;
 
 /**
  * TODO
@@ -67,15 +65,15 @@ public class LoginService {
 
     public User getUser(String token){
         String uid = redisCache.getCacheObject(Constants.LOGIN_TOKEN_KEY+token);
-        Account account = userService.getById(uid);
-        User user = null;
-        if (!Objects.isNull(account)){
-            user = new User();
-            BeanUtils.copyProperties(account,user);
-            user.setPhotoURL(Constants.MINIO_URI + "/demo/" + user.getIcon());
-        }
-        return user;
+        return getUserById(uid);
     }
+
+    public User getUserById(String uid){
+        Account account = userService.getById(uid);
+        return SecurityUtils.convertAccountToUser(account);
+    }
+
+
 
     /**
      * 校验验证码

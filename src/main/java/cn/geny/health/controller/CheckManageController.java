@@ -8,6 +8,7 @@ import cn.geny.health.po.CheckEntity;
 import cn.geny.health.service.impl.CheckCheckService;
 import cn.geny.health.service.impl.CheckEntityService;
 import cn.geny.health.service.impl.FileService;
+import cn.geny.health.service.impl.RatingService;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -33,6 +34,9 @@ public class CheckManageController {
 
     @Autowired
     private FileService fileService;
+
+    @Autowired
+    private RatingService ratingService;
 
     @PutMapping("/put")
     public AjaxResult putCheck(@RequestParam("checkEntity") String checkEntityStr,MultipartFile[] images) {
@@ -75,7 +79,9 @@ public class CheckManageController {
 
     @GetMapping("/get/{id}")
     public AjaxResult getItem(@PathVariable("id") String id) {
-        return AjaxResult.success().put("product",checkEntityService.getCheckEntity(id));
+        return AjaxResult.success()
+                .put("product",checkEntityService.getCheckEntity(id))
+                .put("rating",ratingService.getRatingsPage(id,0,20).getRecords());
     }
 
 
@@ -99,5 +105,10 @@ public class CheckManageController {
         Page<CheckEntity> page = new Page<>(queryBody.getStart(), queryBody.getSize());
         QueryWrapper<CheckEntity> queryWrapper = QueryProducer.me().generatePageQuery(queryBody, CheckEntity.class);
         return AjaxResult.success(checkEntityService.page(page, queryWrapper));
+    }
+
+    @GetMapping("/review/page")
+    public AjaxResult reviewPage(String productId,int pageNum,int pageSize){
+        return AjaxResult.success().put("rating",ratingService.getRatingsPage(productId,pageNum,pageSize));
     }
 }

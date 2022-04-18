@@ -1,10 +1,15 @@
 package cn.geny.health.utils;
 
+import cn.geny.health.bo.User;
+import cn.geny.health.constant.Constants;
 import cn.geny.health.po.Account;
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import java.util.Objects;
 
 /**
  * 安全服务工具类
@@ -90,6 +95,16 @@ public class SecurityUtils {
     public static boolean matchesPassword(String rawPassword, String encodedPassword) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         return passwordEncoder.matches(rawPassword, encodedPassword);
+    }
+
+    public static User convertAccountToUser(Account account){
+        User user = null;
+        if (!Objects.isNull(account)){
+            user = new User();
+            BeanUtils.copyProperties(account,user);
+            user.setPhotoURL(Constants.MINIO_URI + "/demo/" + user.getIcon());
+        }
+        return user;
     }
 
     /**
