@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 public class Summary {
 
-    private String totalRating;
+    private Double totalRating;
 
     private int totalReview;
 

@@ -59,7 +59,7 @@ public class RatingService extends ServiceImpl<RatingMapper, Rating> {
         Double average = doubleStream.average().getAsDouble();
         DecimalFormat decimalFormat = new DecimalFormat("#.0");
         Map<Integer, List<Rating>> groupsByRating = ratingList.stream().collect(Collectors.groupingBy(Rating::getRating));
-        summary.setTotalRating(decimalFormat.format(average));
+        summary.setTotalRating(Double.valueOf(decimalFormat.format(average)));
         summary.setTotalReview(ratingList.size());
         List<Summary.Ratings> list = new ArrayList();
         groupsByRating.forEach((key,value)->{
