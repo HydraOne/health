@@ -39,7 +39,7 @@ public class CheckManageController {
     private RatingService ratingService;
 
     @PutMapping("/put")
-    public AjaxResult putCheck(@RequestParam("checkEntity") String checkEntityStr,MultipartFile[] images) {
+    public AjaxResult putCheck(@RequestParam("checkEntity") String checkEntityStr, MultipartFile[] images) {
         CheckEntity checkEntity = JSONObject.parseObject(checkEntityStr, CheckEntity.class);
 
         if (EnumUtils.isValidEnum(CheckType.class, checkEntity.getType())) {

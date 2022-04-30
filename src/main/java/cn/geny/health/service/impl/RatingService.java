@@ -16,10 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 
@@ -48,16 +45,14 @@ public class RatingService extends ServiceImpl<RatingMapper, Rating> {
 
     public Summary getOverview(String pid){
         Summary summary = new Summary();
-//        Summary summary = redisCache.getCacheObject(Constants.OVERVIEW_KEY + pid);
-//        if (Objects.nonNull(summary)){
-//            return summary;
-//        }else {
-//            summary = new Summary();
-//        }
         List<Rating> ratingList = this.getCurrentRatingListByPid(pid);
         DoubleStream doubleStream = ratingList.stream().filter(item->item.getRating()!=null).mapToDouble(Rating::getRating);
-        Double average = doubleStream.average().getAsDouble();
-        DecimalFormat decimalFormat = new DecimalFormat("#.0");
+        OptionalDouble optionalDouble = doubleStream.average();
+        Double average = 0D;
+        if (optionalDouble.isPresent()){
+            average = optionalDouble.getAsDouble();
+        }
+        DecimalFormat decimalFormat = new DecimalFormat("#0.0");
         Map<Integer, List<Rating>> groupsByRating = ratingList.stream().collect(Collectors.groupingBy(Rating::getRating));
         summary.setTotalRating(decimalFormat.format(average));
         summary.setTotalReview(ratingList.size());
@@ -81,7 +76,10 @@ public class RatingService extends ServiceImpl<RatingMapper, Rating> {
         Page<Rating> ratingPage = this.page(page, queryWrapper.eq("pid", pid).orderByDesc("create_time"));
         List<Rating> records = ratingPage.getRecords();
         List<String> createByIds = records.stream().map(Rating::getCreateBy).collect(Collectors.toList());
-        List<Account> accounts = userService.listByIds(createByIds);
+        List<Account> accounts = new ArrayList<>();
+        if (createByIds.size()>0){
+            accounts.addAll(userService.listByIds(createByIds));
+        }
         Map<String, String> avatarRel = accounts.stream().map(SecurityUtils::convertAccountToUser).collect(Collectors.toMap(Account::getId, User::getPhotoURL));
         records.forEach(rating -> {
             rating.setAvatarUrl(avatarRel.get(rating.getCreateBy()));

@@ -2,6 +2,7 @@ package cn.geny.health.service.impl;
 
 import cn.geny.health.bo.Summary;
 import cn.geny.health.constant.CheckType;
+import cn.geny.health.constant.Constants;
 import cn.geny.health.mapper.CheckEntityMapper;
 import cn.geny.health.po.CheckCheck;
 import cn.geny.health.po.CheckEntity;
@@ -11,6 +12,7 @@ import cn.geny.health.utils.UUIDUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.lang3.EnumUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -57,22 +59,28 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
     }
 
     public boolean save(CheckEntity checkEntity, MultipartFile[] images) {
-        String uuid = UUIDUtil.generateUUID();
         List<CheckCheck> list = new ArrayList<>();
-        checkEntity.setId(uuid);
         CheckType type = EnumUtils.getEnum(CheckType.class,checkEntity.getType());
 
+        String description = checkEntity.getDescription();
+        if (StringUtils.isNotBlank(description)){
+            checkEntity.setDescription(description.replaceAll(Constants.MINIO_URI + "/demo/",""));
+        }
+
         List<String> uploadSuccessImgs = new ArrayList<>();
-        Arrays.stream(images).forEach(image->{
-            uploadSuccessImgs.add(fileService.uploadMedia(image).getId());
-        });
+        if (Objects.nonNull(images)){
+            Arrays.stream(images).forEach(image->{
+                uploadSuccessImgs.add(fileService.uploadMedia(image).getId());
+            });
+        }
         checkEntity.setParam1(String.join(",",uploadSuccessImgs));
+        boolean saveIsSuccess = super.saveOrUpdate(checkEntity);
 
         if (!type.equals(CheckType.Item)){
             List<String> children = checkEntity.getChildren();
-            children.forEach(itemId -> list.add(new CheckCheck(uuid, itemId)));
+            children.forEach(itemId -> list.add(new CheckCheck(checkEntity.getId(), itemId)));
         }
-        return super.save(checkEntity) && (list.size() == 0 || checkCheckService.saveBatch(list));
+        return saveIsSuccess && (list.size() == 0 || checkCheckService.saveBatch(list));
     }
 
     public CheckEntity getCheckEntity(String id) {
@@ -99,7 +107,6 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
 //                checkEntity.setGroups(groups.stream().map(CheckEntity::getId).collect(Collectors.toList()));
 //            }
             checkEntity.setChildren(listIds);
-
         }
         return checkEntity;
     }
