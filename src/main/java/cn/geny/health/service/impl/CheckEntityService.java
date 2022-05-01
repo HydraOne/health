@@ -1,12 +1,13 @@
 package cn.geny.health.service.impl;
 
 import cn.geny.health.bo.Summary;
+import cn.geny.health.constant.AssociationType;
 import cn.geny.health.constant.CheckType;
 import cn.geny.health.constant.Constants;
 import cn.geny.health.mapper.CheckEntityMapper;
-import cn.geny.health.po.CheckCheck;
-import cn.geny.health.po.CheckEntity;
-import cn.geny.health.po.Rating;
+import cn.geny.health.po.*;
+import cn.geny.health.service.AssociationService;
+import cn.geny.health.service.TypeRelService;
 import cn.geny.health.utils.SecurityUtils;
 import cn.geny.health.utils.UUIDUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -44,6 +45,12 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
     @Autowired
     RatingRelService ratingRelService;
 
+    @Autowired
+    TypeRelService typeRelService;
+
+    @Autowired
+    AssociationService associationService;
+
 
     @Override
     public boolean save(CheckEntity checkEntity) {
@@ -59,8 +66,9 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
     }
 
     public boolean save(CheckEntity checkEntity, MultipartFile[] images) {
-        List<CheckCheck> list = new ArrayList<>();
         CheckType type = EnumUtils.getEnum(CheckType.class,checkEntity.getType());
+
+        List<Association> typeRels = new ArrayList<>();
 
         String description = checkEntity.getDescription();
         if (StringUtils.isNotBlank(description)){
@@ -76,11 +84,21 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
         checkEntity.setParam1(String.join(",",uploadSuccessImgs));
         boolean saveIsSuccess = super.saveOrUpdate(checkEntity);
 
-        if (!type.equals(CheckType.Item)){
-            List<String> children = checkEntity.getChildren();
-            children.forEach(itemId -> list.add(new CheckCheck(checkEntity.getId(), itemId)));
+        associationService.remove(new QueryWrapper<Association>().eq("id",checkEntity.getId()).eq("type", AssociationType.Tag.name()));
+        List<String> tags = checkEntity.getTags();
+        if (Objects.nonNull(tags)){
+            tags.forEach(itemId -> typeRels.add(new Association(checkEntity.getId(), itemId,AssociationType.Tag.name())));
         }
-        return saveIsSuccess && (list.size() == 0 || checkCheckService.saveBatch(list));
+
+        associationService.remove(new QueryWrapper<Association>().eq("id",checkEntity.getId()).eq("type", AssociationType.Check.name()));
+        List<String> children = checkEntity.getChildren();
+        if (!type.equals(CheckType.Item)&&Objects.nonNull(children)){
+            children.forEach(itemId -> typeRels.add(new Association(checkEntity.getId(), itemId,AssociationType.Check.name())));
+        }
+
+        associationService.saveBatch(typeRels);
+
+        return saveIsSuccess;
     }
 
     public CheckEntity getCheckEntity(String id) {
@@ -88,26 +106,32 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
         if (Objects.isNull(checkEntity)){
             return null;
         }
-        List<CheckCheck> list = checkCheckService.list(new QueryWrapper<CheckCheck>().eq("check_id", id));
+        List<Association> typeRels = associationService.list(new QueryWrapper<Association>().eq("id", id).eq("type",AssociationType.Tag.name()));
+        List<Association> checkRels = associationService.list(new QueryWrapper<Association>().eq("id", id).eq("type",AssociationType.Check.name()));
         Summary summary = ratingService.getSummary(id);
         checkEntity.setSummary(summary);
-        if (Objects.nonNull(list)&&list.size()!=0) {
-            List<String> listIds = list.stream().map(CheckCheck::getCheckCid).collect(Collectors.toList());
-//            List<CheckEntity> checkEntities = this.listByIds(listIds);
+        List<String> checkRelIds = checkRels.stream().map(Association::getCid).collect(Collectors.toList());
+        List<String> typeRelIds = typeRels.stream().map(Association::getCid).collect(Collectors.toList());
+        checkEntity.setTags(typeRelIds);
+        checkEntity.setChildren(checkRelIds);
+//        if (Objects.nonNull(checkRels)&&checkRels.size()!=0) {
+//
+////            List<CheckEntity> checkEntities = this.listByIds(listIds);
+//////            Map<String, List<CheckEntity>> map = checkEntities.stream().collect(Collectors.groupingBy(CheckEntity::getType));
+//////            checkEntity.setItems(map.get(CheckType.Item.name()));
+//////            checkEntity.setGroups(map.get(CheckType.Group.name()));
 ////            Map<String, List<CheckEntity>> map = checkEntities.stream().collect(Collectors.groupingBy(CheckEntity::getType));
-////            checkEntity.setItems(map.get(CheckType.Item.name()));
-////            checkEntity.setGroups(map.get(CheckType.Group.name()));
-//            Map<String, List<CheckEntity>> map = checkEntities.stream().collect(Collectors.groupingBy(CheckEntity::getType));
-//            List<CheckEntity> items = map.get(CheckType.Item.name());
-//            List<CheckEntity> groups = map.get(CheckType.Group.name());
-//            if (Objects.nonNull(items)){
-//                checkEntity.setItems(items.stream().map(CheckEntity::getId).collect(Collectors.toList()));
-//            }
-//            if (Objects.nonNull(groups)){
-//                checkEntity.setGroups(groups.stream().map(CheckEntity::getId).collect(Collectors.toList()));
-//            }
-            checkEntity.setChildren(listIds);
-        }
+////            List<CheckEntity> items = map.get(CheckType.Item.name());
+////            List<CheckEntity> groups = map.get(CheckType.Group.name());
+////            if (Objects.nonNull(items)){
+////                checkEntity.setItems(items.stream().map(CheckEntity::getId).collect(Collectors.toList()));
+////            }
+////            if (Objects.nonNull(groups)){
+////                checkEntity.setGroups(groups.stream().map(CheckEntity::getId).collect(Collectors.toList()));
+////            }
+//            checkEntity.setTags(typeRelIds);
+//            checkEntity.setChildren(checkRelIds);
+//        }
         return checkEntity;
     }
 

@@ -101,14 +101,15 @@ public class CheckEntity {
      * 预留字段
      */
     @TableField(value = "PARAM2")
-    @JsonProperty("defaultImage")
-    private String param2;
+    @JsonProperty("price")
+    private String price;
 
     /**
      * 预留字段
      */
     @TableField(value = "PARAM3")
-    private String param3;
+    @JsonProperty("priceSale")
+    private String priceSale;
 
     /**
      * 预留字段
@@ -138,6 +139,9 @@ public class CheckEntity {
 
     @TableField(exist = false)
     private List<String> groups;
+
+    @TableField(exist = false)
+    private List<String> tags;
 
     @TableField(exist = false)
     private List<String> items;

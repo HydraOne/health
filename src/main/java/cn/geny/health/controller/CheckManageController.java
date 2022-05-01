@@ -42,6 +42,7 @@ public class CheckManageController {
     public AjaxResult putCheck(@RequestParam("checkEntity") String checkEntityStr, MultipartFile[] images) {
         CheckEntity checkEntity = JSONObject.parseObject(checkEntityStr, CheckEntity.class);
 
+
         if (EnumUtils.isValidEnum(CheckType.class, checkEntity.getType())) {
             if (checkEntityService.save(checkEntity,images)) {
                 return AjaxResult.success();
@@ -111,4 +112,5 @@ public class CheckManageController {
     public AjaxResult reviewPage(String productId,int pageNum,int pageSize){
         return AjaxResult.success().put("rating",ratingService.getRatingsPage(productId,pageNum,pageSize));
     }
+
 }
