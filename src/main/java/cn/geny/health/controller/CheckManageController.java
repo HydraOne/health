@@ -5,9 +5,7 @@ import cn.geny.health.common.QueryProducer;
 import cn.geny.health.constant.CheckType;
 import cn.geny.health.model.QueryBody;
 import cn.geny.health.po.CheckEntity;
-import cn.geny.health.service.impl.CheckCheckService;
 import cn.geny.health.service.impl.CheckEntityService;
-import cn.geny.health.service.impl.FileService;
 import cn.geny.health.service.impl.RatingService;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -28,12 +26,6 @@ import org.springframework.web.multipart.MultipartFile;
 public class CheckManageController {
     @Autowired
     private CheckEntityService checkEntityService;
-
-    @Autowired
-    private CheckCheckService checkCheckService;
-
-    @Autowired
-    private FileService fileService;
 
     @Autowired
     private RatingService ratingService;
@@ -82,6 +74,12 @@ public class CheckManageController {
     public AjaxResult getItem(@PathVariable("id") String id) {
         return AjaxResult.success()
                 .put("product",checkEntityService.getCheckEntity(id));
+    }
+
+    @GetMapping("/child/{id}")
+    public AjaxResult getChildren(@PathVariable("id") String id) {
+        return AjaxResult.success()
+                .put("children",checkEntityService.getChildren(id));
     }
 
 

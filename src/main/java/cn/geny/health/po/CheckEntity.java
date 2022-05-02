@@ -140,5 +140,5 @@ public class CheckEntity {
     private List<String> tags;
 
     @TableField(exist = false)
-    private List<String> children;
+    private List children;
 }

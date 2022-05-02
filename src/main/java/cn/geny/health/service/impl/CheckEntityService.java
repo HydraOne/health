@@ -5,7 +5,10 @@ import cn.geny.health.constant.AssociationType;
 import cn.geny.health.constant.CheckType;
 import cn.geny.health.constant.Constants;
 import cn.geny.health.mapper.CheckEntityMapper;
-import cn.geny.health.po.*;
+import cn.geny.health.po.Association;
+import cn.geny.health.po.CheckCheck;
+import cn.geny.health.po.CheckEntity;
+import cn.geny.health.po.Rating;
 import cn.geny.health.utils.SecurityUtils;
 import cn.geny.health.utils.UUIDUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -147,5 +150,19 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
             }
         }
         return saveIsSuccess;
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<CheckEntity> getChildren(String checkEntityId){
+        List<CheckEntity> result = new ArrayList<>();
+        List<Association> checkRels = associationService.list(new QueryWrapper<Association>().eq("id", checkEntityId).eq("type",AssociationType.Check.name()));
+        List<String> childrenIds = checkRels.stream().map(Association::getCid).collect(Collectors.toList());
+        if (childrenIds.size()!=0){
+            result.addAll(this.list(new QueryWrapper<CheckEntity>().in("id", childrenIds)));
+            result.forEach(checkEntity -> {
+                checkEntity.setChildren(getChildren(checkEntity.getId()));
+            });
+        }
+        return result;
     }
 }
