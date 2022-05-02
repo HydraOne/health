@@ -6,8 +6,6 @@ import cn.geny.health.constant.CheckType;
 import cn.geny.health.constant.Constants;
 import cn.geny.health.mapper.CheckEntityMapper;
 import cn.geny.health.po.*;
-import cn.geny.health.service.AssociationService;
-import cn.geny.health.service.TypeRelService;
 import cn.geny.health.utils.SecurityUtils;
 import cn.geny.health.utils.UUIDUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;

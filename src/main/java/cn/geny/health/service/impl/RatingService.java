@@ -91,17 +91,6 @@ public class RatingService extends ServiceImpl<RatingMapper, Rating> {
 
     public Summary getSummary(String pid){
         Summary summary = getOverview(pid);
-//        List<Rating> ratingListByPid = getCurrentRatingListByPid(pid);
-//        List<String> strings = ratingListByPid.stream().map(Rating::getCreateBy).collect(Collectors.toList());
-//        List<Account> accounts = userService.listByIds(strings);
-//        Map<String, String> avatarRel = accounts.stream().map(SecurityUtils::convertAccountToUser).collect(Collectors.toMap(Account::getId, User::getPhotoURL));
-//        ratingListByPid.forEach(rating -> {
-//            rating.setAvatarUrl(avatarRel.get(rating.getCreateBy()));
-//            rating.setIsPurchased(true);
-//            rating.setHelpful(new Random().nextInt(10000));
-//        });
-//        summary.setRatingList(getRatingsPage(pid,0,20));
-        summary.setRatingList(getRatingsPage(pid,0,20).getRecords());
         return summary;
     }
 }

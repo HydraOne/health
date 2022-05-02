@@ -136,15 +136,8 @@ public class CheckEntity {
         return document.outerHtml();
     }
 
-
-    @TableField(exist = false)
-    private List<String> groups;
-
     @TableField(exist = false)
     private List<String> tags;
-
-    @TableField(exist = false)
-    private List<String> items;
 
     @TableField(exist = false)
     private List<String> children;

@@ -1,6 +1,5 @@
 package cn.geny.health.bo;
 
-import cn.geny.health.po.Rating;
 import lombok.Data;
 
 import java.util.List;
@@ -29,6 +28,4 @@ public class Summary {
         public int reviewCount;
         public int value;
     }
-
-    private List<Rating> ratingList;
 }

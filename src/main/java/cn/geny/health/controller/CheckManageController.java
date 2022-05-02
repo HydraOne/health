@@ -81,8 +81,7 @@ public class CheckManageController {
     @GetMapping("/get/{id}")
     public AjaxResult getItem(@PathVariable("id") String id) {
         return AjaxResult.success()
-                .put("product",checkEntityService.getCheckEntity(id))
-                .put("rating",ratingService.getRatingsPage(id,0,20).getRecords());
+                .put("product",checkEntityService.getCheckEntity(id));
     }
 
 
