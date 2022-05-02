@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.geny.health.mapper.TypeMapper">
+  <resultMap id="BaseResultMap" type="cn.geny.health.po.Type">
+    <!--@mbg.generated-->
+    <!--@Table `type`-->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="PARAM1" jdbcType="VARCHAR" property="param1" />
+    <result column="PARAM2" jdbcType="VARCHAR" property="param2" />
+    <result column="PARAM3" jdbcType="VARCHAR" property="param3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, `NAME`, DESCRIPTION, CREATE_BY, CREATE_TIME, UPDATE_BY, UPDATE_TIME, PARAM1, 
+    PARAM2, PARAM3
+  </sql>
+</mapper>
