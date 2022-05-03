@@ -153,14 +153,18 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
     }
 
     @SuppressWarnings("unchecked")
-    public List<CheckEntity> getChildren(String checkEntityId){
+    public List<CheckEntity> getChildren(String checkEntityId,int deps){
+        // TODO: 2022/5/3 暂时使用遍历深度限制循环嵌套 
         List<CheckEntity> result = new ArrayList<>();
+        if (deps>=Constants.MAX_DEPTH){
+            return result;
+        }
         List<Association> checkRels = associationService.list(new QueryWrapper<Association>().eq("id", checkEntityId).eq("type",AssociationType.Check.name()));
         List<String> childrenIds = checkRels.stream().map(Association::getCid).collect(Collectors.toList());
         if (childrenIds.size()!=0){
             result.addAll(this.list(new QueryWrapper<CheckEntity>().in("id", childrenIds)));
             result.forEach(checkEntity -> {
-                checkEntity.setChildren(getChildren(checkEntity.getId()));
+                checkEntity.setChildren(getChildren(checkEntity.getId(),deps + 1));
             });
         }
         return result;

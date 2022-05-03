@@ -172,4 +172,7 @@ public class Constants {
     public void setMinioUri(String key) {
         Constants.MINIO_URI = key;
     }
+
+
+    public static final Integer MAX_DEPTH = 4;
 }

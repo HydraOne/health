@@ -79,7 +79,7 @@ public class CheckManageController {
     @GetMapping("/child/{id}")
     public AjaxResult getChildren(@PathVariable("id") String id) {
         return AjaxResult.success()
-                .put("children",checkEntityService.getChildren(id));
+                .put("children",checkEntityService.getChildren(id,0));
     }
 
 
