@@ -5,7 +5,6 @@ import cn.geny.health.constant.Constants;
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -84,6 +83,14 @@ public class CheckEntity {
     @TableField(value = "UPDATE_TIME", fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
+
+    /**
+     * 更新时间
+     */
+    @TableField(value = "AVAILABLE")
+    private Integer available;
+
+
     /**
      * 删除标志
      */
@@ -98,17 +105,15 @@ public class CheckEntity {
     private String param1;
 
     /**
-     * 预留字段
+     * 市场价
      */
-    @TableField(value = "PARAM2")
-    @JsonProperty("price")
+    @TableField(value = "PRICE")
     private String price;
 
     /**
-     * 预留字段
+     * 预约价
      */
-    @TableField(value = "PARAM3")
-    @JsonProperty("priceSale")
+    @TableField(value = "PRICE_SALE")
     private String priceSale;
 
     /**

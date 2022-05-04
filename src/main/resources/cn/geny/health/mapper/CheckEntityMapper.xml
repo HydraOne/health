@@ -13,14 +13,15 @@
     <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
     <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="DEL_FLAG" jdbcType="VARCHAR" property="delFlag" />
+    <result column="AVAILABLE" jdbcType="INTEGER" property="available" />
     <result column="PARAM1" jdbcType="VARCHAR" property="param1" />
-    <result column="PARAM2" jdbcType="VARCHAR" property="param2" />
-    <result column="PARAM3" jdbcType="VARCHAR" property="param3" />
+    <result column="PRICE" jdbcType="VARCHAR" property="price" />
+    <result column="PRICE_SALE" jdbcType="VARCHAR" property="priceSale" />
     <result column="PARAM4" jdbcType="VARCHAR" property="param4" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     ID, `NAME`, DESCRIPTION, `TYPE`, CREATE_BY, CREATE_TIME, UPDATE_BY, UPDATE_TIME,
-    DEL_FLAG, PARAM1, PARAM2, PARAM3, PARAM4
+    DEL_FLAG, AVAILABLE, PARAM1, PRICE, PRICE_SALE, PARAM4
   </sql>
 </mapper>

@@ -6,7 +6,6 @@ import cn.geny.health.constant.CheckType;
 import cn.geny.health.constant.Constants;
 import cn.geny.health.mapper.CheckEntityMapper;
 import cn.geny.health.po.Association;
-import cn.geny.health.po.CheckCheck;
 import cn.geny.health.po.CheckEntity;
 import cn.geny.health.po.Rating;
 import cn.geny.health.utils.SecurityUtils;
@@ -35,19 +34,10 @@ import java.util.stream.Collectors;
 public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEntity> {
 
     @Autowired
-    CheckCheckService checkCheckService;
-
-    @Autowired
     FileService fileService;
 
     @Autowired
     RatingService ratingService;
-
-    @Autowired
-    RatingRelService ratingRelService;
-
-    @Autowired
-    TypeRelService typeRelService;
 
     @Autowired
     AssociationService associationService;
@@ -56,14 +46,14 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
     @Override
     public boolean save(CheckEntity checkEntity) {
         String uuid = UUIDUtil.generateUUID();
-        List<CheckCheck> list = new ArrayList<>();
+        List<Association> list = new ArrayList<>();
         checkEntity.setId(uuid);
         CheckType type = EnumUtils.getEnum(CheckType.class,checkEntity.getType());
         if (!type.equals(CheckType.Item)){
             List<String> children = checkEntity.getChildren();
-            children.forEach(itemId -> list.add(new CheckCheck(uuid, itemId)));
+            children.forEach(itemId -> list.add(new Association(uuid, itemId,AssociationType.Check.name())));
         }
-        return super.save(checkEntity) && (list.size() == 0 || checkCheckService.saveBatch(list));
+        return super.save(checkEntity) && (list.size() == 0 || associationService.saveBatch(list));
     }
 
     public boolean save(CheckEntity checkEntity, MultipartFile[] images) {
@@ -94,9 +84,17 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
         associationService.remove(new QueryWrapper<Association>().eq("id",checkEntity.getId()).eq("type", AssociationType.Check.name()));
         List<String> children = checkEntity.getChildren();
         if (!type.equals(CheckType.Item)&&Objects.nonNull(children)){
-            children.forEach(itemId -> typeRels.add(new Association(checkEntity.getId(), itemId,AssociationType.Check.name())));
+            if (type.equals(CheckType.Plan)){
+                children.forEach(itemId -> typeRels.add(new Association(checkEntity.getId(), itemId,AssociationType.Check.name())));
+            }
+            if (type.equals(CheckType.Group)){
+                List<CheckEntity> list = this.list(new QueryWrapper<CheckEntity>().in("id", children));
+                list.stream().filter((childrenEntity->{
+                    CheckType childrenType = EnumUtils.getEnum(CheckType.class,childrenEntity.getType());
+                    return childrenType.equals(CheckType.Item);
+                })).forEach(item -> typeRels.add(new Association(checkEntity.getId(), item.getId(),AssociationType.Check.name())));
+            }
         }
-
         associationService.saveBatch(typeRels);
 
         return saveIsSuccess;

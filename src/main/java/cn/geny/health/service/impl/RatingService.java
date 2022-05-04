@@ -30,9 +30,6 @@ import java.util.stream.DoubleStream;
 public class RatingService extends ServiceImpl<RatingMapper, Rating> {
 
     @Autowired
-    RatingRelService ratingRelService;
-
-    @Autowired
     RedisCache redisCache;
 
     @Autowired
