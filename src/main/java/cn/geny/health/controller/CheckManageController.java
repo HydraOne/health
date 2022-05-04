@@ -71,7 +71,7 @@ public class CheckManageController {
     @GetMapping("/get/{id}")
     public AjaxResult getItem(@PathVariable("id") String id) {
         return AjaxResult.success()
-                .put("product",checkEntityService.getCheckEntity(id));
+                .put("product",checkEntityService.getCheckEntityTree(id));
     }
 
     @GetMapping("/child/{id}")

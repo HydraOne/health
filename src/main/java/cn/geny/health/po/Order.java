@@ -1,23 +1,23 @@
 package cn.geny.health.po;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
-/** 
+/**
  * TODO
+ *
  * @author wangjiahao
  * @date 2022/3/13 0:46
  */
+
 /**
-    * 订单表
-    */
+ * 订单表
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,14 +32,14 @@ public class Order {
     /**
      * 套餐ID
      */
-    @TableField(value = "CHECK_ID")
-    private String checkId;
-
-    /**
-     * 用户ID
-     */
     @TableField(value = "USER_ID")
     private String userId;
+
+    /**
+     * 交易创建用户ID
+     */
+    @TableField(value = "CREATE_BY", fill = FieldFill.INSERT)
+    private String createBy;
 
     /**
      * 交易单号
@@ -56,13 +56,21 @@ public class Order {
     /**
      * 创建时间
      */
-    @TableField(value = "CREATE_TIME")
+    @TableField(value = "CREATE_TIME", fill = FieldFill.INSERT)
     private Date createTime;
+
+
+    /**
+     * 更新操作用户
+     */
+    @TableField(value = "UPDATE_BY", fill = FieldFill.INSERT_UPDATE)
+    private String updateBy;
+
 
     /**
      * 更新时间
      */
-    @TableField(value = "UPDATE_TIME")
+    @TableField(value = "UPDATE_TIME", fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
     /**
@@ -94,4 +102,17 @@ public class Order {
      */
     @TableField(value = "PARAM4")
     private String param4;
+
+    /**
+     * 预留字段
+     */
+    @TableField(value = "APPOINT")
+    private Date appoint;
+
+
+    /**
+     * 预留字段
+     */
+    @TableField(exist = false)
+    private List<String> orderList;
 }

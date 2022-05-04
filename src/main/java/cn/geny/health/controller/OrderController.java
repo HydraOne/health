@@ -10,6 +10,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 /**
  * TODO
  *
@@ -31,9 +33,12 @@ public class OrderController {
         }
     }
 
-    @GetMapping("/get")
-    public AjaxResult get() {
-        return AjaxResult.success(orderService.list());
+    @GetMapping("/get/{orderId}")
+    public AjaxResult get(@PathVariable("orderId") String orderId) {
+        Map<String, Object> orderInfo = orderService.getOrderInfo(orderId);
+        AjaxResult success = AjaxResult.success();
+        success.putAll(orderInfo);
+        return success;
     }
 
     @DeleteMapping("/del/{id}")
@@ -58,7 +63,7 @@ public class OrderController {
     @GetMapping("/page")
     public AjaxResult page(@RequestBody QueryBody<Order> queryBody) {
         Page<Order> page = new Page<>(queryBody.getStart(), queryBody.getSize());
-        QueryWrapper<Order> queryWrapper = QueryProducer.me().generatePageQuery(queryBody,Order.class);
+        QueryWrapper<Order> queryWrapper = QueryProducer.me().generatePageQuery(queryBody, Order.class);
         return AjaxResult.success(orderService.page(page, queryWrapper));
     }
 }

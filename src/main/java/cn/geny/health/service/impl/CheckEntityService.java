@@ -18,10 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -100,7 +97,7 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
         return saveIsSuccess;
     }
 
-    public CheckEntity getCheckEntity(String id) {
+    public CheckEntity getCheckEntityTree(String id) {
         CheckEntity checkEntity = this.getById(id);
         if (Objects.isNull(checkEntity)){
             return null;
@@ -134,8 +131,47 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
         return checkEntity;
     }
 
+
+    public List<CheckEntity> getCheckEntityAllItem(List<String> checkEntityIds) {
+        List<CheckEntity> checkEntitys = this.list(new QueryWrapper<CheckEntity>().in("id",checkEntityIds));
+        Set<CheckEntity> checkEntitieItem = new HashSet<>();
+        Map<String, List<CheckEntity>> collect = checkEntitys.stream().collect(Collectors.groupingBy(CheckEntity::getType));
+        checkEntitieItem.addAll(collect.get(CheckType.Item.name()));
+        List<CheckEntity> groupEntitys= collect.get(CheckType.Group.name());
+        groupEntitys.forEach(groupEntity->{
+            CheckEntity currentEntity = getCheckEntityTree(groupEntity.getId());
+            List<CheckEntity> currentEntitys = currentEntity.getChildren();
+            checkEntitieItem.addAll(currentEntitys);
+        });
+        List<CheckEntity> planEntity= collect.get(CheckType.Plan.name());
+        groupEntitys.forEach(groupEntity->{
+            CheckEntity currentEntity = getCheckEntityTree(groupEntity.getId());
+            List<CheckEntity> currentEntitys = currentEntity.getChildren();
+            checkEntitieItem.addAll(currentEntitys);
+        });
+//        if (Objects.nonNull(checkRels)&&checkRels.size()!=0) {
+//
+////            List<CheckEntity> checkEntities = this.listByIds(listIds);
+//////            Map<String, List<CheckEntity>> map = checkEntities.stream().collect(Collectors.groupingBy(CheckEntity::getType));
+//////            checkEntity.setItems(map.get(CheckType.Item.name()));
+//////            checkEntity.setGroups(map.get(CheckType.Group.name()));
+////            Map<String, List<CheckEntity>> map = checkEntities.stream().collect(Collectors.groupingBy(CheckEntity::getType));
+////            List<CheckEntity> items = map.get(CheckType.Item.name());
+////            List<CheckEntity> groups = map.get(CheckType.Group.name());
+////            if (Objects.nonNull(items)){
+////                checkEntity.setItems(items.stream().map(CheckEntity::getId).collect(Collectors.toList()));
+////            }
+////            if (Objects.nonNull(groups)){
+////                checkEntity.setGroups(groups.stream().map(CheckEntity::getId).collect(Collectors.toList()));
+////            }
+//            checkEntity.setTags(typeRelIds);
+//            checkEntity.setChildren(checkRelIds);
+//        }
+        return null;
+    }
+
     public Boolean toCheckEntityAddReview(String checkEntityId, Rating rating){
-        CheckEntity checkEntity = this.getCheckEntity(checkEntityId);
+        CheckEntity checkEntity = this.getCheckEntityTree(checkEntityId);
         boolean saveIsSuccess = false;
         if (rating.getRating()==null){
             throw new RuntimeException("请填入评分");

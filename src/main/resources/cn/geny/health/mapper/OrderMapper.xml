@@ -5,8 +5,9 @@
     <!--@mbg.generated-->
     <!--@Table `order`-->
     <id column="ORDER_ID" jdbcType="VARCHAR" property="orderId" />
-    <result column="CHECK_ID" jdbcType="VARCHAR" property="checkId" />
     <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
     <result column="TRADE_ID" jdbcType="VARCHAR" property="tradeId" />
     <result column="AMOUNT" jdbcType="VARCHAR" property="amount" />
     <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
@@ -16,10 +17,11 @@
     <result column="PARAM2" jdbcType="VARCHAR" property="param2" />
     <result column="PARAM3" jdbcType="VARCHAR" property="param3" />
     <result column="PARAM4" jdbcType="VARCHAR" property="param4" />
+    <result column="APPOINT" jdbcType="TIMESTAMP" property="appoint" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    ORDER_ID, CHECK_ID, USER_ID, TRADE_ID, AMOUNT, CREATE_TIME, UPDATE_TIME, `STATUS`, 
-    PARAM1, PARAM2, PARAM3, PARAM4
+    ORDER_ID, USER_ID, CREATE_BY, UPDATE_BY,TRADE_ID, AMOUNT, CREATE_TIME, UPDATE_TIME, `STATUS`,
+    PARAM1, PARAM2, PARAM3, PARAM4,APPOINT
   </sql>
 </mapper>

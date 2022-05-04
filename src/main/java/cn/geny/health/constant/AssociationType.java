@@ -14,6 +14,8 @@ public enum AssociationType {
 
     Role,
 
+    Order,
+
     Tag;
 
 }
