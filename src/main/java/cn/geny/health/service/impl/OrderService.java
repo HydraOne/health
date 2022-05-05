@@ -3,7 +3,6 @@ package cn.geny.health.service.impl;
 import cn.geny.health.constant.AssociationType;
 import cn.geny.health.mapper.OrderMapper;
 import cn.geny.health.po.Association;
-import cn.geny.health.po.CheckEntity;
 import cn.geny.health.po.Order;
 import cn.geny.health.service.UserInfoService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -56,7 +55,7 @@ public class OrderService extends ServiceImpl<OrderMapper, Order> {
                 .eq("id",orderId)
                 .eq("type",AssociationType.Order.name()))
                 .stream().map(Association::getCid).collect(Collectors.toList());
-        result.put("checks",checkEntityService.list(new QueryWrapper<CheckEntity>().in("id",associationList)));
+        result.put("checks",checkEntityService.getCheckEntityAllItem(associationList));
         return result;
     }
 }

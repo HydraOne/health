@@ -132,42 +132,41 @@ public class CheckEntityService extends ServiceImpl<CheckEntityMapper, CheckEnti
     }
 
 
-    public List<CheckEntity> getCheckEntityAllItem(List<String> checkEntityIds) {
+    public Set<CheckEntity> getCheckEntityAllItem(List<String> checkEntityIds) {
         List<CheckEntity> checkEntitys = this.list(new QueryWrapper<CheckEntity>().in("id",checkEntityIds));
-        Set<CheckEntity> checkEntitieItem = new HashSet<>();
-        Map<String, List<CheckEntity>> collect = checkEntitys.stream().collect(Collectors.groupingBy(CheckEntity::getType));
-        checkEntitieItem.addAll(collect.get(CheckType.Item.name()));
-        List<CheckEntity> groupEntitys= collect.get(CheckType.Group.name());
-        groupEntitys.forEach(groupEntity->{
-            CheckEntity currentEntity = getCheckEntityTree(groupEntity.getId());
-            List<CheckEntity> currentEntitys = currentEntity.getChildren();
-            checkEntitieItem.addAll(currentEntitys);
-        });
-        List<CheckEntity> planEntity= collect.get(CheckType.Plan.name());
-        groupEntitys.forEach(groupEntity->{
-            CheckEntity currentEntity = getCheckEntityTree(groupEntity.getId());
-            List<CheckEntity> currentEntitys = currentEntity.getChildren();
-            checkEntitieItem.addAll(currentEntitys);
-        });
-//        if (Objects.nonNull(checkRels)&&checkRels.size()!=0) {
-//
-////            List<CheckEntity> checkEntities = this.listByIds(listIds);
-//////            Map<String, List<CheckEntity>> map = checkEntities.stream().collect(Collectors.groupingBy(CheckEntity::getType));
-//////            checkEntity.setItems(map.get(CheckType.Item.name()));
-//////            checkEntity.setGroups(map.get(CheckType.Group.name()));
-////            Map<String, List<CheckEntity>> map = checkEntities.stream().collect(Collectors.groupingBy(CheckEntity::getType));
-////            List<CheckEntity> items = map.get(CheckType.Item.name());
-////            List<CheckEntity> groups = map.get(CheckType.Group.name());
-////            if (Objects.nonNull(items)){
-////                checkEntity.setItems(items.stream().map(CheckEntity::getId).collect(Collectors.toList()));
-////            }
-////            if (Objects.nonNull(groups)){
-////                checkEntity.setGroups(groups.stream().map(CheckEntity::getId).collect(Collectors.toList()));
-////            }
-//            checkEntity.setTags(typeRelIds);
-//            checkEntity.setChildren(checkRelIds);
+        Set<CheckEntity> checkResults = new HashSet<>();
+        eachChildrenToList(checkEntitys,checkResults);
+        return checkResults;
+    }
+
+//    eachTitle = (array,rowStack,allResult)=>{
+//        // const result = [];
+//        array.forEach(item=>{
+//            const row = rowStack.map(item=>item);
+//        row.push(item.id);
+//            const {price,priceSale,createTime,name,type,description} = item;
+//            const data = {hierarchy: row,name,price,priceSale,createTime,id:allResult.length,type,description};
+//        allResult.push(data);
+//        if (item.children.length > 0){
+//            eachTitle(item.children,row,allResult);
 //        }
-        return null;
+//        })
+//    }
+
+    @SuppressWarnings("unchecked")
+    public void eachChildrenToList(Collection<CheckEntity> collection,Set<CheckEntity> result){
+        collection.forEach(checkEntity -> {
+            CheckType type = EnumUtils.getEnum(CheckType.class,checkEntity.getType());
+            if (CheckType.Item!=type){
+                List<CheckEntity> children = getChildren(checkEntity.getId(),0);
+                if (Objects.nonNull(children)&&children.size()>0){
+                    eachChildrenToList(children,result);
+                }
+            }
+            else {
+                result.add(checkEntity);
+            }
+        });
     }
 
     public Boolean toCheckEntityAddReview(String checkEntityId, Rating rating){
