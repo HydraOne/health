@@ -33,9 +33,9 @@ public class OrderController {
         }
     }
 
-    @GetMapping("/get/{orderId}")
-    public AjaxResult get(@PathVariable("orderId") String orderId) {
-        Map<String, Object> orderInfo = orderService.getOrderInfo(orderId);
+    @GetMapping("/get/{id}")
+    public AjaxResult get(@PathVariable("id") String id) {
+        Map<String, Object> orderInfo = orderService.getOrderInfo(id);
         AjaxResult success = AjaxResult.success();
         success.putAll(orderInfo);
         return success;
@@ -56,14 +56,17 @@ public class OrderController {
     }
 
     @GetMapping("/list")
-    public AjaxResult list() {
+    public AjaxResult list(int pageNum,int pageSize) {
+
         return null;
     }
 
-    @GetMapping("/page")
+    @PostMapping("/page")
     public AjaxResult page(@RequestBody QueryBody<Order> queryBody) {
-        Page<Order> page = new Page<>(queryBody.getStart(), queryBody.getSize());
+        Page<Order> page = new Page<>(queryBody.getPageNum(), queryBody.getPageSize());
         QueryWrapper<Order> queryWrapper = QueryProducer.me().generatePageQuery(queryBody, Order.class);
-        return AjaxResult.success(orderService.page(page, queryWrapper));
+        return AjaxResult.success().put("page",orderService.getOrderBoList(page,queryWrapper));
     }
+
+
 }

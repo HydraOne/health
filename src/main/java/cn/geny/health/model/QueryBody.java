@@ -42,11 +42,11 @@ public class QueryBody<E> {
         return singleFields.contains(filedName);
     }
 
-    @JsonAlias("start")
-    private int start;
+    @JsonAlias("pageSize")
+    private int pageNum;
 
-    @JsonAlias("size")
-    private int size;
+    @JsonAlias("pageSize")
+    private int pageSize;
 
     @JsonAlias("conditions")
     private Map<String, Map> conditions;

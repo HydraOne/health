@@ -4,8 +4,10 @@ import cn.geny.health.constant.AssociationType;
 import cn.geny.health.mapper.OrderMapper;
 import cn.geny.health.po.Association;
 import cn.geny.health.po.Order;
+import cn.geny.health.po.UserInfo;
 import cn.geny.health.service.UserInfoService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,23 +41,34 @@ public class OrderService extends ServiceImpl<OrderMapper, Order> {
         super.save(order);
         if (Objects.nonNull(orderList)){
             List<Association> associationList = orderList.stream()
-                    .map(item->new Association(order.getOrderId(),item, AssociationType.Order.name()))
+                    .map(item->new Association(order.getId(),item, AssociationType.Order.name()))
                     .collect(Collectors.toList());
             associationService.saveBatch(associationList);
         }
         return true;
     }
 
-    public Map<String,Object> getOrderInfo(String orderId){
-        Order order = this.getById(orderId);
+    public Map<String,Object> getOrderInfo(String id){
+        Order order = this.getById(id);
         LinkedHashMap<String, Object> result = new LinkedHashMap<>();
         result.put("userInfo",userInfoService.getById(order.getUserId()));
         result.put("order",order);
         List<String> associationList = associationService.list(new QueryWrapper<Association>()
-                .eq("id",orderId)
+                .eq("id",id)
                 .eq("type",AssociationType.Order.name()))
                 .stream().map(Association::getCid).collect(Collectors.toList());
         result.put("checks",checkEntityService.getCheckEntityAllItem(associationList));
         return result;
     }
+
+    public Page<Order> getOrderBoList(Page<Order> page,QueryWrapper<Order> queryWrapper){
+        Page<Order> orderPage = this.page(page, queryWrapper);
+        List<Order> records = orderPage.getRecords();
+        List<String> collect = records.stream().map(Order::getUserId).collect(Collectors.toList());
+        Map<String, String> stringStringMap = userInfoService.list(new QueryWrapper<UserInfo>().in("id", collect))
+                .stream().collect(Collectors.toMap(UserInfo::getId,UserInfo::getName));
+        records.forEach(record->record.setName(stringStringMap.get(record.getUserId())));
+        return orderPage;
+    }
+
 }

@@ -1,6 +1,7 @@
 package cn.geny.health.po;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,8 +27,8 @@ public class Order {
     /**
      * 订单ID
      */
-    @TableId(value = "ORDER_ID", type = IdType.ASSIGN_UUID)
-    private String orderId;
+    @TableId(value = "ID", type = IdType.ASSIGN_UUID)
+    private String id;
 
     /**
      * 套餐ID
@@ -115,4 +116,11 @@ public class Order {
      */
     @TableField(exist = false)
     private List<String> orderList;
+
+    /**
+     * 订单人姓名
+     */
+    @JsonProperty("name")
+    @TableField(exist = false)
+    private String name;
 }

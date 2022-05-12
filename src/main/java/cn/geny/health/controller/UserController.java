@@ -37,14 +37,14 @@ public class UserController {
 
     @GetMapping("/page")
     public AjaxResult getPageUsers(@RequestBody QueryBody<Account> queryBody) {
-        Page<Account> page = new Page<>(queryBody.getStart(), queryBody.getSize());
+        Page<Account> page = new Page<>(queryBody.getPageNum(), queryBody.getPageSize());
         QueryWrapper<Account> queryWrapper = QueryProducer.me().generatePageQuery(queryBody, Account.class);
         return AjaxResult.success(userService.page(page, queryWrapper));
     }
 
     @DeleteMapping("/delete")
     public AjaxResult getDeleteUsers(@RequestBody QueryBody<Account> queryBody) {
-        Page<Account> page = new Page<>(queryBody.getStart(), queryBody.getSize());
+        Page<Account> page = new Page<>(queryBody.getPageNum(), queryBody.getPageSize());
         QueryWrapper<Account> queryWrapper = QueryProducer.me().generatePageQuery(queryBody, Account.class);
         return AjaxResult.success(userService.page(page, queryWrapper));
     }

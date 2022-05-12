@@ -98,9 +98,9 @@ public class CheckManageController {
 
     @GetMapping("/page")
     public AjaxResult page(@RequestBody QueryBody<CheckEntity> queryBody) {
-        Page<CheckEntity> page = new Page<>(queryBody.getStart(), queryBody.getSize());
+        Page<CheckEntity> page = new Page<>(queryBody.getPageNum(), queryBody.getPageSize());
         QueryWrapper<CheckEntity> queryWrapper = QueryProducer.me().generatePageQuery(queryBody, CheckEntity.class);
-        return AjaxResult.success(checkEntityService.page(page, queryWrapper));
+        return AjaxResult.success().put("page",checkEntityService.page(page, queryWrapper));
     }
 
     @GetMapping("/review/page")

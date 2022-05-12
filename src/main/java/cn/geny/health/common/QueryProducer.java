@@ -38,11 +38,11 @@ public class QueryProducer<E> {
 
 
         //** 小驼峰转下划线
-        camelToUpLowerCase(conditions);
 
         //jackson
 //        List<String> timeFields = queryBody.getTimeFields();
         if (conditions != null) {
+            camelToUpLowerCase(conditions);
 //            convertStrFieldToDate(conditions,timeFields);
             Map<String, Object> equalsCondition = equalsCondition = conditions.get(QueryBody.EQUALS_FIELD);
             if (equalsCondition != null) {

@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
   servlet:
     context-path: /api
 
@@ -29,8 +29,8 @@ spring:
         #表示开启 DEBUG 模式，这样，邮件发送过程的日志会在控制台打印出来，方便排查错误
         debug: false
   redis:
-#    host: 192.168.117.130
-    host: 81.68.219.205
+    host: 192.168.117.130
+#    host: 81.68.219.205
     port: 6379
     password: Passw0rd
   servlet:
