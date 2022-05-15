@@ -1,0 +1,241 @@
+{
+  "data": {
+    "contacts": [
+      {
+        "id": "0082596802a681008d44bb4234028f61",
+        "username": "aoinishi",
+        "name": "Jaydon Frankie",
+        "avatar": "http://192.168.117.130:19000/demo/41f7158d44c98b89a4f47c62a738ea39"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b1",
+        "name": "Jayvion Simon",
+        "username": "jayvion.simon",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_1.jpg"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2",
+        "name": "Lucian Obrien",
+        "username": "lucian.obrien",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_2.jpg"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b3",
+        "name": "Deja Brady",
+        "username": "deja.brady",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_3.jpg",
+        "address": "18605 Thompson Circle Apt. 086 - Idaho Falls, WV / 50337",
+        "phone": "399-757-9909",
+        "email": "milo.farrell@hotmail.com",
+        "lastActivity": "2022-05-12T08:21:18.856Z",
+        "status": "away",
+        "position": "Backend Developer"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b4",
+        "name": "Harrison Stein",
+        "username": "harrison.stein",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_4.jpg",
+        "address": "110 Lamar Station Apt. 730 - Hagerstown, OK / 49808",
+        "phone": "692-767-2903",
+        "email": "violet.ratke86@yahoo.com",
+        "lastActivity": "2022-05-11T07:21:18.856Z",
+        "status": "away",
+        "position": "UX Designer"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b5",
+        "name": "Reece Chung",
+        "username": "reece.chung",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_5.jpg",
+        "address": "36901 Elmer Spurs Apt. 762 - Miramar, DE / 92836",
+        "phone": "990-588-5716",
+        "email": "letha_lubowitz24@yahoo.com",
+        "lastActivity": "2022-05-10T06:21:18.856Z",
+        "status": "away",
+        "position": "UX Designer"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b6",
+        "name": "Lainey Davidson",
+        "username": "lainey.davidson",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_6.jpg",
+        "address": "2089 Runolfsson Harbors Suite 886 - Chapel Hill, TX / 32827",
+        "phone": "955-439-2578",
+        "email": "aditya_greenfelder31@gmail.com",
+        "lastActivity": "2022-05-09T05:21:18.856Z",
+        "status": "online",
+        "position": "Project Manager"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b7",
+        "name": "Cristopher Cardenas",
+        "username": "cristopher.cardenas",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_7.jpg",
+        "address": "279 Karolann Ports Apt. 774 - Prescott Valley, WV / 53905",
+        "phone": "226-924-4058",
+        "email": "lenna_bergnaum27@hotmail.com",
+        "lastActivity": "2022-05-08T04:21:18.856Z",
+        "status": "away",
+        "position": "Leader"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b8",
+        "name": "Melanie Noble",
+        "username": "melanie.noble",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_8.jpg",
+        "address": "96607 Claire Square Suite 591 - St. Louis Park, HI / 40802",
+        "phone": "552-917-1454",
+        "email": "luella.ryan33@gmail.com",
+        "lastActivity": "2022-05-07T03:21:18.856Z",
+        "status": "offline",
+        "position": "Backend Developer"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b9",
+        "name": "Chase Day",
+        "username": "chase.day",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_9.jpg",
+        "address": "9388 Auer Station Suite 573 - Honolulu, AK / 98024",
+        "phone": "285-840-9338",
+        "email": "joana.simonis84@gmail.com",
+        "lastActivity": "2022-05-06T02:21:18.856Z",
+        "status": "offline",
+        "position": "Project Manager"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b10",
+        "name": "Shawn Manning",
+        "username": "shawn.manning",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_10.jpg",
+        "address": "47665 Adaline Squares Suite 510 - Blacksburg, NE / 53515",
+        "phone": "306-269-2446",
+        "email": "marjolaine_white94@gmail.com",
+        "lastActivity": "2022-05-05T01:21:18.856Z",
+        "status": "busy",
+        "position": "UI Designer"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b11",
+        "name": "Soren Durham",
+        "username": "soren.durham",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_11.jpg",
+        "address": "989 Vernice Flats Apt. 183 - Billings, NV / 04147",
+        "phone": "883-373-6253",
+        "email": "vergie_block82@hotmail.com",
+        "lastActivity": "2022-05-04T00:21:18.856Z",
+        "status": "online",
+        "position": "UI/UX Designer"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b12",
+        "name": "Cortez Herring",
+        "username": "cortez.herring",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_12.jpg",
+        "address": "91020 Wehner Locks Apt. 673 - Albany, WY / 68763",
+        "phone": "476-509-8866",
+        "email": "vito.hudson@hotmail.com",
+        "lastActivity": "2022-05-02T23:21:18.856Z",
+        "status": "away",
+        "position": "UI/UX Designer"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b13",
+        "name": "Brycen Jimenez",
+        "username": "brycen.jimenez",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_13.jpg",
+        "address": "585 Candelario Pass Suite 090 - Columbus, LA / 25376",
+        "phone": "201-465-1954",
+        "email": "tyrel_greenholt@gmail.com",
+        "lastActivity": "2022-05-01T22:21:18.856Z",
+        "status": "offline",
+        "position": "UI Designer"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b14",
+        "name": "Giana Brandt",
+        "username": "giana.brandt",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_14.jpg",
+        "address": "80988 Renner Crest Apt. 000 - Fargo, VA / 24266",
+        "phone": "538-295-9408",
+        "email": "dwight.block85@yahoo.com",
+        "lastActivity": "2022-04-30T21:21:18.856Z",
+        "status": "busy",
+        "position": "Backend Developer"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b15",
+        "name": "Aspen Schmitt",
+        "username": "aspen.schmitt",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_15.jpg",
+        "address": "28307 Shayne Pike Suite 523 - North Las Vegas, AZ / 28550",
+        "phone": "531-492-6028",
+        "email": "mireya13@hotmail.com",
+        "lastActivity": "2022-04-29T20:21:18.856Z",
+        "status": "away",
+        "position": "Backend Developer"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b16",
+        "name": "Colten Aguilar",
+        "username": "colten.aguilar",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_16.jpg",
+        "address": "205 Farrell Highway Suite 333 - Rock Hill, OK / 63421",
+        "phone": "981-699-7588",
+        "email": "dasia_jenkins@hotmail.com",
+        "lastActivity": "2022-04-28T19:21:18.856Z",
+        "status": "away",
+        "position": "Front End Developer"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b17",
+        "name": "Angelique Morse",
+        "username": "angelique.morse",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_17.jpg",
+        "address": "253 Kara Motorway Suite 821 - Manchester, SD / 09331",
+        "phone": "500-268-4826",
+        "email": "benny89@yahoo.com",
+        "lastActivity": "2022-04-27T18:21:18.856Z",
+        "status": "offline",
+        "position": "Backend Developer"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b18",
+        "name": "Selina Boyer",
+        "username": "selina.boyer",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_18.jpg",
+        "address": "13663 Kiara Oval Suite 606 - Missoula, AR / 44478",
+        "phone": "205-952-3828",
+        "email": "dawn.goyette@gmail.com",
+        "lastActivity": "2022-04-26T17:21:18.856Z",
+        "status": "offline",
+        "position": "Full Stack Designer"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b19",
+        "name": "Lawson Bass",
+        "username": "lawson.bass",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_19.jpg",
+        "address": "8110 Claire Port Apt. 703 - Anchorage, TN / 01753",
+        "phone": "222-255-5190",
+        "email": "zella_hickle4@yahoo.com",
+        "lastActivity": "2022-04-25T16:21:18.856Z",
+        "status": "busy",
+        "position": "Full Stack Developer"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b20",
+        "name": "Ariana Lang",
+        "username": "ariana.lang",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_20.jpg",
+        "address": "4642 Demetris Lane Suite 407 - Edmond, AZ / 60888",
+        "phone": "408-439-8033",
+        "email": "avery43@hotmail.com",
+        "lastActivity": "2022-04-24T15:21:18.856Z",
+        "status": "away",
+        "position": "Backend Developer"
+      }
+    ]
+  },
+  "status": 200
+}

@@ -22,6 +22,4 @@ public class RegisterService {
         account.setPwd(password);
         return accountMapper.insert(account);
     }
-
-
 }

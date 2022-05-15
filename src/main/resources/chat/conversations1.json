@@ -1,0 +1,861 @@
+{
+    "conversations": [
+    {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2",
+        "participants": [
+            {
+                "id": "8864c717-587d-472a-929a-8e5f298024da-0",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_15.jpg",
+                "name": "Jaydon Frankie",
+                "username": "jaydon.frankie"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2",
+                "name": "Lucian Obrien",
+                "username": "lucian.obrien",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_2.jpg"
+            }
+        ],
+        "type": "ONE_TO_ONE",
+        "unreadCount": 0,
+        "messages": [
+            {
+                "id": "5872a6a6-d9c5-4fe0-96a2-351d6914dbbf",
+                "body": "Quis veniam aut saepe aliquid nulla.",
+                "contentType": "text",
+                "attachments": [
+                    "https://minimal-assets-api-dev.vercel.app/assets/images/feeds/feed_2.jpg"
+                ],
+                "createdAt": "2022-05-14T00:21:18.856Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2"
+            },
+            {
+                "id": "79a3829d-65c6-4bf1-8f78-8984dcecc6d3",
+                "body": "Reprehenderit ut voluptas sapiente ratione nostrum est.",
+                "contentType": "text",
+                "attachments": [
+                    "https://minimal-assets-api-dev.vercel.app/assets/images/feeds/feed_3.jpg"
+                ],
+                "createdAt": "2022-05-14T08:21:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "f70c83ce-036f-4461-a516-0ea8f9500ffb",
+                "body": "Error ut sit vel molestias velit.",
+                "contentType": "text",
+                "attachments": [
+                    "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_12.mp4"
+                ],
+                "createdAt": "2022-05-14T10:13:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2"
+            },
+            {
+                "id": "10f88394-91dc-40cc-b8db-2021cff723a9",
+                "body": "Quo quia sit nihil nemo doloremque et.",
+                "contentType": "text",
+                "attachments": [
+                    "https://mail.google.com/mail/u/file1.docx",
+                    "https://mail.google.com/mail/u/file2.xlsx",
+                    "https://mail.google.com/mail/u/file3.pptx"
+                ],
+                "createdAt": "2022-05-14T10:15:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "ebbd3552-d5e3-4440-87f6-93a7d3ac11c8",
+                "body": "Autem doloribus harum vero laborum.",
+                "contentType": "text",
+                "attachments": [
+                    "https://mail.google.com/mail/u/file4.pdf",
+                    "https://mail.google.com/mail/u/file5.psd",
+                    "https://mail.google.com/mail/u/file6.esp",
+                    "https://mail.google.com/mail/u/file7.sketch"
+                ],
+                "createdAt": "2022-05-14T10:17:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2"
+            },
+            {
+                "id": "07b4da7a-126a-4161-b41c-2aa4c7fef781",
+                "attachments": [],
+                "contentType": "image",
+                "body": "https://minimal-assets-api-dev.vercel.app/assets/images/feeds/feed_5.jpg",
+                "createdAt": "2022-05-14T10:19:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2"
+            },
+            {
+                "id": "ca121376-b5e5-4107-93de-65d795e0bbaf",
+                "contentType": "text",
+                "body": "Tempora officiis consequuntur architecto nostrum autem nam adipisci.",
+                "attachments": [],
+                "createdAt": "2022-05-14T10:19:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "c528fb13-7a6f-4e45-9699-92750c47ded8",
+                "body": "Voluptas sunt magni adipisci praesentium saepe.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T10:19:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            }
+        ]
+    },
+    {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b3",
+        "participants": [
+            {
+                "id": "8864c717-587d-472a-929a-8e5f298024da-0",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_15.jpg",
+                "name": "Jaydon Frankie",
+                "username": "jaydon.frankie"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b3",
+                "name": "Deja Brady",
+                "username": "deja.brady",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_3.jpg",
+                "address": "18605 Thompson Circle Apt. 086 - Idaho Falls, WV / 50337",
+                "phone": "399-757-9909",
+                "email": "milo.farrell@hotmail.com",
+                "lastActivity": "2022-05-12T08:21:18.856Z",
+                "status": "away",
+                "position": "Backend Developer"
+            }
+        ],
+        "type": "ONE_TO_ONE",
+        "unreadCount": 0,
+        "messages": [
+            {
+                "id": "1108e9ae-f366-4824-a4d9-561847b1bb0a",
+                "body": "Ea architecto quas voluptates voluptas earum illo est vel rem.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T02:21:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b3"
+            },
+            {
+                "id": "5a8621fe-09cc-48e0-bf3c-83c03c256c64",
+                "body": "Ipsum expedita reiciendis ut.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T04:21:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "4e4ac37a-3975-46b9-bc95-9184c9f5c9d9",
+                "body": "Architecto vel voluptatibus alias a aut non maxime ipsa voluptates.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T05:51:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b3"
+            },
+            {
+                "id": "f99a8661-7bef-4e28-b4bb-bafbe7e18e2c",
+                "body": "Reiciendis enim officiis cupiditate eaque distinctio laudantium modi similique consequatur.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T08:06:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "a858387f-2cf0-45b9-bc9b-67cce65fb375",
+                "body": "Ab autem consequatur itaque mollitia ipsum cupiditate error repudiandae nobis.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T09:06:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b3"
+            },
+            {
+                "id": "d630b184-f733-4d04-aded-0ed8bb5306bd",
+                "body": "https://minimal-assets-api-dev.vercel.app/assets/images/feeds/feed_8.jpg",
+                "attachments": [],
+                "contentType": "image",
+                "createdAt": "2022-05-14T09:21:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b3"
+            },
+            {
+                "id": "808cf2ec-9483-42f9-a977-98ad4251edb3",
+                "body": "Distinctio architecto debitis eligendi consequatur unde id modi accusantium possimus.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T09:36:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            }
+        ]
+    },
+    {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b4",
+        "participants": [
+            {
+                "id": "8864c717-587d-472a-929a-8e5f298024da-0",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_15.jpg",
+                "name": "Jaydon Frankie",
+                "username": "jaydon.frankie"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b4",
+                "name": "Harrison Stein",
+                "username": "harrison.stein",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_4.jpg",
+                "address": "110 Lamar Station Apt. 730 - Hagerstown, OK / 49808",
+                "phone": "692-767-2903",
+                "email": "violet.ratke86@yahoo.com",
+                "lastActivity": "2022-05-11T07:21:18.856Z",
+                "status": "away",
+                "position": "UX Designer"
+            }
+        ],
+        "type": "ONE_TO_ONE",
+        "unreadCount": 0,
+        "messages": [
+            {
+                "id": "5980ce6e-7412-42c0-976c-405e75baa5cd",
+                "body": "At ut voluptate accusantium.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T02:21:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b4"
+            },
+            {
+                "id": "7beff5df-2c41-4330-a85a-eabc700b20e8",
+                "body": "Repudiandae ut qui veritatis sint.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T04:21:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "69471e45-2e4e-4198-8765-7c9d8ec62549",
+                "body": "Laboriosam blanditiis quo sed et qui esse ipsam necessitatibus sed.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T05:51:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b4"
+            },
+            {
+                "id": "b663fc55-0183-4821-9e14-626beda561df",
+                "body": "Et molestiae et excepturi maxime omnis.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T08:06:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "e30d8545-9b05-4e65-8a9b-2f9ea58ce6cd",
+                "body": "Sint dolorem quam eum magnam.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T09:06:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b4"
+            },
+            {
+                "id": "6aec5023-67d9-4b63-a0f6-7ba4617f4837",
+                "body": "https://minimal-assets-api-dev.vercel.app/assets/images/feeds/feed_6.jpg",
+                "contentType": "image",
+                "attachments": [],
+                "createdAt": "2022-05-14T09:21:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b4"
+            },
+            {
+                "id": "7003a614-fd34-4d5b-9fa6-8d7cce7ef50f",
+                "body": "https://minimal-assets-api-dev.vercel.app/assets/images/feeds/feed_7.jpg",
+                "contentType": "image",
+                "attachments": [],
+                "createdAt": "2022-05-14T09:21:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b4"
+            }
+        ]
+    },
+    {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b5",
+        "participants": [
+            {
+                "id": "8864c717-587d-472a-929a-8e5f298024da-0",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_15.jpg",
+                "name": "Jaydon Frankie",
+                "username": "jaydon.frankie"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b5",
+                "name": "Reece Chung",
+                "username": "reece.chung",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_5.jpg",
+                "address": "36901 Elmer Spurs Apt. 762 - Miramar, DE / 92836",
+                "phone": "990-588-5716",
+                "email": "letha_lubowitz24@yahoo.com",
+                "lastActivity": "2022-05-10T06:21:18.856Z",
+                "status": "away",
+                "position": "UX Designer"
+            }
+        ],
+        "type": "ONE_TO_ONE",
+        "unreadCount": 2,
+        "messages": [
+            {
+                "id": "ceb15bc6-7039-4454-b243-391325c0b156",
+                "body": "Rerum ut iusto iste quam voluptatem necessitatibus.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T00:21:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b5"
+            },
+            {
+                "id": "f88729d8-f6e2-465b-add1-be83676b1ac1",
+                "body": "Et quam in.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T08:21:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "699eec4e-050a-41fd-88b5-6a397ff8d3d4",
+                "body": "Fugit esse tenetur.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T10:16:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b5"
+            },
+            {
+                "id": "72626621-bc39-442a-9f75-5b843b3d1e24",
+                "body": "Dolorem dolor porro nihil cupiditate molestiae deserunt ut.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T10:18:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "73d2c646-0cf8-4c75-8134-64f1971a3b04",
+                "body": "Omnis beatae eos eius aut molestias laboriosam laborum et optio.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T10:20:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "202a0e44-ceae-4ef3-95f7-b0695bc9bb78",
+                "body": "Ut veniam quam assumenda ut voluptatibus ducimus accusamus.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T10:20:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b5"
+            }
+        ]
+    },
+    {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b6",
+        "participants": [
+            {
+                "id": "8864c717-587d-472a-929a-8e5f298024da-0",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_15.jpg",
+                "name": "Jaydon Frankie",
+                "username": "jaydon.frankie"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b6",
+                "name": "Lainey Davidson",
+                "username": "lainey.davidson",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_6.jpg",
+                "address": "2089 Runolfsson Harbors Suite 886 - Chapel Hill, TX / 32827",
+                "phone": "955-439-2578",
+                "email": "aditya_greenfelder31@gmail.com",
+                "lastActivity": "2022-05-09T05:21:18.856Z",
+                "status": "online",
+                "position": "Project Manager"
+            }
+        ],
+        "type": "ONE_TO_ONE",
+        "unreadCount": 0,
+        "messages": [
+            {
+                "id": "bb526afc-d08a-45c2-bdcb-37530b96db0a",
+                "body": "Quos dignissimos neque omnis reiciendis voluptatem ducimus.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T10:20:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "c18d66e5-8c29-4b8b-9235-3c606dff1abb",
+                "body": "Laboriosam quia ut esse.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T10:20:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b6"
+            }
+        ]
+    },
+    {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b7",
+        "participants": [
+            {
+                "id": "8864c717-587d-472a-929a-8e5f298024da-0",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_15.jpg",
+                "name": "Jaydon Frankie",
+                "username": "jaydon.frankie"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b7",
+                "name": "Cristopher Cardenas",
+                "username": "cristopher.cardenas",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_7.jpg",
+                "address": "279 Karolann Ports Apt. 774 - Prescott Valley, WV / 53905",
+                "phone": "226-924-4058",
+                "email": "lenna_bergnaum27@hotmail.com",
+                "lastActivity": "2022-05-08T04:21:18.856Z",
+                "status": "away",
+                "position": "Leader"
+            }
+        ],
+        "type": "ONE_TO_ONE",
+        "unreadCount": 2,
+        "messages": [
+            {
+                "id": "478e3dec-63d3-46a1-baf8-758542a78e70",
+                "body": "Sit reiciendis nihil qui molestias et.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T10:20:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "7a5bb2f2-a68d-4883-93dd-2399d1e8537b",
+                "body": "Facilis cupiditate minima ratione quaerat omnis velit non ex totam.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T10:20:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b7"
+            }
+        ]
+    },
+    {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b8",
+        "participants": [
+            {
+                "id": "8864c717-587d-472a-929a-8e5f298024da-0",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_15.jpg",
+                "name": "Jaydon Frankie",
+                "username": "jaydon.frankie"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2",
+                "name": "Lucian Obrien",
+                "username": "lucian.obrien",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_2.jpg",
+                "address": "1147 Rohan Drive Suite 819 - Burlington, VT / 82021",
+                "phone": "904-966-2836",
+                "email": "ashlynn_ohara62@gmail.com",
+                "lastActivity": "2022-05-13T09:21:18.856Z",
+                "status": "online",
+                "position": "Full Stack Designer"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b3",
+                "name": "Deja Brady",
+                "username": "deja.brady",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_3.jpg",
+                "address": "18605 Thompson Circle Apt. 086 - Idaho Falls, WV / 50337",
+                "phone": "399-757-9909",
+                "email": "milo.farrell@hotmail.com",
+                "lastActivity": "2022-05-12T08:21:18.856Z",
+                "status": "away",
+                "position": "Backend Developer"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b5",
+                "name": "Reece Chung",
+                "username": "reece.chung",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_5.jpg",
+                "address": "36901 Elmer Spurs Apt. 762 - Miramar, DE / 92836",
+                "phone": "990-588-5716",
+                "email": "letha_lubowitz24@yahoo.com",
+                "lastActivity": "2022-05-10T06:21:18.856Z",
+                "status": "away",
+                "position": "UX Designer"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b4",
+                "name": "Harrison Stein",
+                "username": "harrison.stein",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_4.jpg",
+                "address": "110 Lamar Station Apt. 730 - Hagerstown, OK / 49808",
+                "phone": "692-767-2903",
+                "email": "violet.ratke86@yahoo.com",
+                "lastActivity": "2022-05-11T07:21:18.856Z",
+                "status": "away",
+                "position": "UX Designer"
+            }
+        ],
+        "type": "GROUP",
+        "unreadCount": 5,
+        "messages": [
+            {
+                "id": "a02ec481-2ce0-4d26-badb-582b71c503dc",
+                "body": "Provident sint esse voluptatem voluptas eveniet est.",
+                "contentType": "text",
+                "attachments": [
+                    "https://minimal-assets-api-dev.vercel.app/assets/images/feeds/feed_2.jpg",
+                    "https://minimal-assets-api-dev.vercel.app/assets/images/feeds/feed_3.jpg",
+                    "https://minimal-assets-api-dev.vercel.app/assets/images/feeds/feed_4.jpg",
+                    "https://minimal-assets-api-dev.vercel.app/assets/images/feeds/feed_5.jpg",
+                    "https://mail.google.com/mail/u/file1.docx"
+                ],
+                "createdAt": "2022-05-11T07:51:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "f816eabd-8b4b-4c53-aba1-4bf92aa7b64c",
+                "body": "Molestias consequatur ea facilis.",
+                "contentType": "text",
+                "attachments": [
+                    "https://mail.google.com/mail/u/file2.xlsx"
+                ],
+                "createdAt": "2022-05-11T07:52:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2"
+            },
+            {
+                "id": "c82c92a8-7d90-4bb6-a2b3-b3d6d05a401e",
+                "body": "Tempora voluptatibus autem ut ut porro quae delectus dolorum.",
+                "contentType": "text",
+                "attachments": [
+                    "https://mail.google.com/mail/u/file3.psd"
+                ],
+                "createdAt": "2022-05-11T07:53:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b3"
+            },
+            {
+                "id": "b49b0faf-1b8b-45ec-bcee-8b038e206d45",
+                "body": "Et consequatur amet nemo ducimus voluptatem placeat voluptas.",
+                "contentType": "text",
+                "attachments": [
+                    "https://mail.google.com/mail/u/file3.pptx"
+                ],
+                "createdAt": "2022-05-11T07:54:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b5"
+            },
+            {
+                "id": "ffd0f7fb-cf95-4fae-920c-52822752a3f6",
+                "body": "Modi iste atque hic voluptas sit quis deleniti quas consequatur.",
+                "contentType": "text",
+                "attachments": [
+                    "https://mail.google.com/mail/u/file3.ai"
+                ],
+                "createdAt": "2022-05-11T07:55:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "572314b4-6df6-4370-9f51-c986eff80e3d",
+                "body": "Omnis est aliquid odio mollitia aliquid ex.",
+                "contentType": "text",
+                "attachments": [
+                    "https://mail.google.com/mail/u/file3.mp4"
+                ],
+                "createdAt": "2022-05-11T10:21:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b4"
+            }
+        ]
+    },
+    {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b9",
+        "participants": [
+            {
+                "id": "8864c717-587d-472a-929a-8e5f298024da-0",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_15.jpg",
+                "name": "Jaydon Frankie",
+                "username": "jaydon.frankie"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b8",
+                "name": "Melanie Noble",
+                "username": "melanie.noble",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_8.jpg",
+                "address": "96607 Claire Square Suite 591 - St. Louis Park, HI / 40802",
+                "phone": "552-917-1454",
+                "email": "luella.ryan33@gmail.com",
+                "lastActivity": "2022-05-07T03:21:18.856Z",
+                "status": "offline",
+                "position": "Backend Developer"
+            }
+        ],
+        "type": "ONE_TO_ONE",
+        "unreadCount": 0,
+        "messages": [
+            {
+                "id": "26df5257-659c-49e2-b2fc-db09ae3b3251",
+                "body": "Officia possimus veniam quod molestias.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T10:20:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "3f73da22-53a1-4a11-b0fe-92b6878244af",
+                "body": "Quis veniam aut saepe aliquid nulla.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T10:20:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b8"
+            }
+        ]
+    },
+    {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b10",
+        "participants": [
+            {
+                "id": "8864c717-587d-472a-929a-8e5f298024da-0",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_15.jpg",
+                "name": "Jaydon Frankie",
+                "username": "jaydon.frankie"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b9",
+                "name": "Chase Day",
+                "username": "chase.day",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_9.jpg",
+                "address": "9388 Auer Station Suite 573 - Honolulu, AK / 98024",
+                "phone": "285-840-9338",
+                "email": "joana.simonis84@gmail.com",
+                "lastActivity": "2022-05-06T02:21:18.856Z",
+                "status": "offline",
+                "position": "Project Manager"
+            }
+        ],
+        "type": "ONE_TO_ONE",
+        "unreadCount": 0,
+        "messages": [
+            {
+                "id": "4b471da9-9457-41af-bd6f-dfabeb51d238",
+                "body": "Reprehenderit ut voluptas sapiente ratione nostrum est.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T10:20:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "68378bf6-5b82-491b-8fbe-dff6d11b8561",
+                "body": "Error ut sit vel molestias velit.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T10:20:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b9"
+            }
+        ]
+    },
+    {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b11",
+        "participants": [
+            {
+                "id": "8864c717-587d-472a-929a-8e5f298024da-0",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_15.jpg",
+                "name": "Jaydon Frankie",
+                "username": "jaydon.frankie"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b10",
+                "name": "Shawn Manning",
+                "username": "shawn.manning",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_10.jpg",
+                "address": "47665 Adaline Squares Suite 510 - Blacksburg, NE / 53515",
+                "phone": "306-269-2446",
+                "email": "marjolaine_white94@gmail.com",
+                "lastActivity": "2022-05-05T01:21:18.856Z",
+                "status": "busy",
+                "position": "UI Designer"
+            }
+        ],
+        "type": "ONE_TO_ONE",
+        "unreadCount": 0,
+        "messages": [
+            {
+                "id": "948dfc6b-c065-41ad-86b6-30ca280f6bb3",
+                "body": "Quo quia sit nihil nemo doloremque et.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T10:20:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "914da069-c831-4a8a-8b9a-887bfa6ac792",
+                "body": "Autem doloribus harum vero laborum.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T10:20:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b10"
+            }
+        ]
+    },
+    {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b12",
+        "participants": [
+            {
+                "id": "8864c717-587d-472a-929a-8e5f298024da-0",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_15.jpg",
+                "name": "Jaydon Frankie",
+                "username": "jaydon.frankie"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b7",
+                "name": "Cristopher Cardenas",
+                "username": "cristopher.cardenas",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_7.jpg",
+                "address": "279 Karolann Ports Apt. 774 - Prescott Valley, WV / 53905",
+                "phone": "226-924-4058",
+                "email": "lenna_bergnaum27@hotmail.com",
+                "lastActivity": "2022-05-08T04:21:18.856Z",
+                "status": "away",
+                "position": "Leader"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b8",
+                "name": "Melanie Noble",
+                "username": "melanie.noble",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_8.jpg",
+                "address": "96607 Claire Square Suite 591 - St. Louis Park, HI / 40802",
+                "phone": "552-917-1454",
+                "email": "luella.ryan33@gmail.com",
+                "lastActivity": "2022-05-07T03:21:18.856Z",
+                "status": "offline",
+                "position": "Backend Developer"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b9",
+                "name": "Chase Day",
+                "username": "chase.day",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_9.jpg",
+                "address": "9388 Auer Station Suite 573 - Honolulu, AK / 98024",
+                "phone": "285-840-9338",
+                "email": "joana.simonis84@gmail.com",
+                "lastActivity": "2022-05-06T02:21:18.856Z",
+                "status": "offline",
+                "position": "Project Manager"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b10",
+                "name": "Shawn Manning",
+                "username": "shawn.manning",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_10.jpg",
+                "address": "47665 Adaline Squares Suite 510 - Blacksburg, NE / 53515",
+                "phone": "306-269-2446",
+                "email": "marjolaine_white94@gmail.com",
+                "lastActivity": "2022-05-05T01:21:18.856Z",
+                "status": "busy",
+                "position": "UI Designer"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b11",
+                "name": "Soren Durham",
+                "username": "soren.durham",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_11.jpg",
+                "address": "989 Vernice Flats Apt. 183 - Billings, NV / 04147",
+                "phone": "883-373-6253",
+                "email": "vergie_block82@hotmail.com",
+                "lastActivity": "2022-05-04T00:21:18.856Z",
+                "status": "online",
+                "position": "UI/UX Designer"
+            }
+        ],
+        "type": "GROUP",
+        "unreadCount": 0,
+        "messages": [
+            {
+                "id": "c39d895c-8059-4a49-a3c9-d50d3964dc75",
+                "body": "Tempora officiis consequuntur architecto nostrum autem nam adipisci.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-11T07:51:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "81476766-61ad-48c5-adde-479cc86c4f0e",
+                "body": "Voluptas sunt magni adipisci praesentium saepe.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-11T07:52:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b10"
+            },
+            {
+                "id": "2e3f87c4-4ebe-4c46-845d-a9c96f159775",
+                "body": "Ea architecto quas voluptates voluptas earum illo est vel rem.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-11T07:53:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b11"
+            },
+            {
+                "id": "82cd3190-2a6f-45b8-b557-cc58f71a93f7",
+                "body": "Ipsum expedita reiciendis ut.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-11T07:54:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b9"
+            },
+            {
+                "id": "cd0f70c8-469b-41e5-92c7-bd00818f3996",
+                "attachments": [],
+                "body": "Architecto vel voluptatibus alias a aut non maxime ipsa voluptates.",
+                "contentType": "text",
+                "createdAt": "2022-05-11T07:55:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "c05c4300-c5c1-4883-943b-3365e15611d6",
+                "body": "Reiciendis enim officiis cupiditate eaque distinctio laudantium modi similique consequatur.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-11T10:21:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b7"
+            },
+            {
+                "id": "b965b547-9efa-4668-b784-405fcae52d63",
+                "body": "Ab autem consequatur itaque mollitia ipsum cupiditate error repudiandae nobis.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-11T10:21:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b8"
+            }
+        ]
+    },
+    {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b13",
+        "participants": [
+            {
+                "id": "8864c717-587d-472a-929a-8e5f298024da-0",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_15.jpg",
+                "name": "Jaydon Frankie",
+                "username": "jaydon.frankie"
+            },
+            {
+                "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b11",
+                "name": "Soren Durham",
+                "username": "soren.durham",
+                "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_11.jpg",
+                "address": "989 Vernice Flats Apt. 183 - Billings, NV / 04147",
+                "phone": "883-373-6253",
+                "email": "vergie_block82@hotmail.com",
+                "lastActivity": "2022-05-04T00:21:18.856Z",
+                "status": "online",
+                "position": "UI/UX Designer"
+            }
+        ],
+        "type": "ONE_TO_ONE",
+        "unreadCount": 0,
+        "messages": [
+            {
+                "id": "bf75ff5f-006a-44f0-b95a-cbbac562ebf1",
+                "body": "Distinctio architecto debitis eligendi consequatur unde id modi accusantium possimus.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T10:20:18.857Z",
+                "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+            },
+            {
+                "id": "158435ce-e582-4eec-9c60-ac9b4a63b5b9",
+                "body": "At ut voluptate accusantium.",
+                "contentType": "text",
+                "attachments": [],
+                "createdAt": "2022-05-14T10:20:18.857Z",
+                "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b11"
+            }
+        ]
+    }
+]
+}

@@ -1,0 +1,104 @@
+{
+  "conversations": [
+    {
+      "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2",
+      "participants": [
+        {
+          "id": "8864c717-587d-472a-929a-8e5f298024da-0",
+          "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_15.jpg",
+          "name": "Jaydon Frankie",
+          "username": "jaydon.frankie"
+        },
+        {
+          "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2",
+          "name": "Lucian Obrien",
+          "username": "lucian.obrien",
+          "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_2.jpg"
+        }
+      ],
+      "type": "ONE_TO_ONE",
+      "unreadCount": 0,
+      "messages": [
+        {
+          "id": "5872a6a6-d9c5-4fe0-96a2-351d6914dbbf",
+          "body": "Quis veniam aut saepe aliquid nulla.",
+          "contentType": "text",
+          "attachments": [
+            "https://minimal-assets-api-dev.vercel.app/assets/images/feeds/feed_2.jpg"
+          ],
+          "createdAt": "2022-05-14T00:21:18.856Z",
+          "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2"
+        },
+        {
+          "id": "79a3829d-65c6-4bf1-8f78-8984dcecc6d3",
+          "body": "Reprehenderit ut voluptas sapiente ratione nostrum est.",
+          "contentType": "text",
+          "attachments": [
+            "https://minimal-assets-api-dev.vercel.app/assets/images/feeds/feed_3.jpg"
+          ],
+          "createdAt": "2022-05-14T08:21:18.857Z",
+          "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+        },
+        {
+          "id": "f70c83ce-036f-4461-a516-0ea8f9500ffb",
+          "body": "Error ut sit vel molestias velit.",
+          "contentType": "text",
+          "attachments": [
+            "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_12.mp4"
+          ],
+          "createdAt": "2022-05-14T10:13:18.857Z",
+          "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2"
+        },
+        {
+          "id": "10f88394-91dc-40cc-b8db-2021cff723a9",
+          "body": "Quo quia sit nihil nemo doloremque et.",
+          "contentType": "text",
+          "attachments": [
+            "https://mail.google.com/mail/u/file1.docx",
+            "https://mail.google.com/mail/u/file2.xlsx",
+            "https://mail.google.com/mail/u/file3.pptx"
+          ],
+          "createdAt": "2022-05-14T10:15:18.857Z",
+          "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+        },
+        {
+          "id": "ebbd3552-d5e3-4440-87f6-93a7d3ac11c8",
+          "body": "Autem doloribus harum vero laborum.",
+          "contentType": "text",
+          "attachments": [
+            "https://mail.google.com/mail/u/file4.pdf",
+            "https://mail.google.com/mail/u/file5.psd",
+            "https://mail.google.com/mail/u/file6.esp",
+            "https://mail.google.com/mail/u/file7.sketch"
+          ],
+          "createdAt": "2022-05-14T10:17:18.857Z",
+          "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2"
+        },
+        {
+          "id": "07b4da7a-126a-4161-b41c-2aa4c7fef781",
+          "attachments": [],
+          "contentType": "image",
+          "body": "https://minimal-assets-api-dev.vercel.app/assets/images/feeds/feed_5.jpg",
+          "createdAt": "2022-05-14T10:19:18.857Z",
+          "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2"
+        },
+        {
+          "id": "ca121376-b5e5-4107-93de-65d795e0bbaf",
+          "contentType": "text",
+          "body": "Tempora officiis consequuntur architecto nostrum autem nam adipisci.",
+          "attachments": [],
+          "createdAt": "2022-05-14T10:19:18.857Z",
+          "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+        },
+        {
+          "id": "c528fb13-7a6f-4e45-9699-92750c47ded8",
+          "body": "Voluptas sunt magni adipisci praesentium saepe.",
+          "contentType": "text",
+          "attachments": [],
+          "createdAt": "2022-05-14T10:19:18.857Z",
+          "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+        }
+      ]
+    }
+  ]
+}

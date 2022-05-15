@@ -1,0 +1,108 @@
+{
+  "conversation": {
+    "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2",
+    "participants": [
+      {
+        "id": "8864c717-587d-472a-929a-8e5f298024da-0",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_15.jpg",
+        "name": "Jaydon Frankie",
+        "username": "jaydon.frankie"
+      },
+      {
+        "id": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2",
+        "name": "Lucian Obrien",
+        "username": "lucian.obrien",
+        "avatar": "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_2.jpg",
+        "address": "1147 Rohan Drive Suite 819 - Burlington, VT / 82021",
+        "phone": "904-966-2836",
+        "email": "ashlynn_ohara62@gmail.com",
+        "lastActivity": "2022-05-13T10:51:08.658Z",
+        "status": "away",
+        "position": "Full Stack Designer"
+      }
+    ],
+    "type": "ONE_TO_ONE",
+    "unreadCount": 0,
+    "messages": [
+      {
+        "id": "5091474b-8d39-40ee-9df3-21e814f91ec8",
+        "body": "Quis veniam aut saepe aliquid nulla.",
+        "contentType": "text",
+        "attachments": [
+          "https://minimal-assets-api-dev.vercel.app/assets/images/feeds/feed_2.jpg"
+        ],
+        "createdAt": "2022-05-14T01:51:08.664Z",
+        "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2"
+      },
+      {
+        "id": "d089f26c-3b9f-469b-8fc3-6900efa13640",
+        "body": "Reprehenderit ut voluptas sapiente ratione nostrum est.",
+        "contentType": "text",
+        "attachments": [
+          "https://minimal-assets-api-dev.vercel.app/assets/images/feeds/feed_3.jpg"
+        ],
+        "createdAt": "2022-05-14T09:51:08.664Z",
+        "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+      },
+      {
+        "id": "41fc9de0-19e4-4b40-8897-1f72421431f8",
+        "body": "Error ut sit vel molestias velit.",
+        "contentType": "text",
+        "attachments": [
+          "https://minimal-assets-api-dev.vercel.app/assets/images/avatars/avatar_12.mp4"
+        ],
+        "createdAt": "2022-05-14T11:43:08.664Z",
+        "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2"
+      },
+      {
+        "id": "e9b40c8e-a941-4d19-a494-349aace58d59",
+        "body": "Quo quia sit nihil nemo doloremque et.",
+        "contentType": "text",
+        "attachments": [
+          "https://mail.google.com/mail/u/file1.docx",
+          "https://mail.google.com/mail/u/file2.xlsx",
+          "https://mail.google.com/mail/u/file3.pptx"
+        ],
+        "createdAt": "2022-05-14T11:45:08.664Z",
+        "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+      },
+      {
+        "id": "9e753df7-81b7-4920-b4b3-7f35b80813d8",
+        "body": "Autem doloribus harum vero laborum.",
+        "contentType": "text",
+        "attachments": [
+          "https://mail.google.com/mail/u/file4.pdf",
+          "https://mail.google.com/mail/u/file5.psd",
+          "https://mail.google.com/mail/u/file6.esp",
+          "https://mail.google.com/mail/u/file7.sketch"
+        ],
+        "createdAt": "2022-05-14T11:47:08.664Z",
+        "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2"
+      },
+      {
+        "id": "9f8b7b79-3cab-4646-8c03-f30ca7d2bf39",
+        "attachments": [],
+        "contentType": "image",
+        "body": "https://minimal-assets-api-dev.vercel.app/assets/images/feeds/feed_5.jpg",
+        "createdAt": "2022-05-14T11:49:08.664Z",
+        "senderId": "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2"
+      },
+      {
+        "id": "48d8563e-97eb-4c3e-a9ff-37aa87f01f56",
+        "contentType": "text",
+        "body": "Tempora officiis consequuntur architecto nostrum autem nam adipisci.",
+        "attachments": [],
+        "createdAt": "2022-05-14T11:49:08.664Z",
+        "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+      },
+      {
+        "id": "d8d17862-4e92-4c5e-8220-82fef335455f",
+        "body": "Voluptas sunt magni adipisci praesentium saepe.",
+        "contentType": "text",
+        "attachments": [],
+        "createdAt": "2022-05-14T11:49:08.664Z",
+        "senderId": "8864c717-587d-472a-929a-8e5f298024da-0"
+      }
+    ]
+  }
+}

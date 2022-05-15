@@ -1,6 +1,7 @@
 package cn.geny.health.service.impl;
 
 import cn.geny.health.constant.AssociationType;
+import cn.geny.health.constant.OrderStatus;
 import cn.geny.health.mapper.OrderMapper;
 import cn.geny.health.po.Association;
 import cn.geny.health.po.Order;
@@ -38,6 +39,7 @@ public class OrderService extends ServiceImpl<OrderMapper, Order> {
     @Override
     public boolean save(Order order) {
         List<String> orderList = order.getOrderList();
+        order.setStatus(OrderStatus.isAppoint.name());
         super.save(order);
         if (Objects.nonNull(orderList)){
             List<Association> associationList = orderList.stream()

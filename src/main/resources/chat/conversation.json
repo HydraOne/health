@@ -1,0 +1,39 @@
+{
+  "conversation": {
+    "id": "0082596802a681008d44bb4234028f61",
+    "participants": [
+      {
+        "id": "0151ea00a414e445bd7130c27b284df8",
+        "username": "tom",
+        "name": "奥特曼",
+        "avatar": "http://192.168.117.130:19000/demo/8ec0f9450950263fd9eb8561c0f07bf4"
+      },
+      {
+        "id": "0082596802a681008d44bb4234028f61",
+        "username": "aoinishi",
+        "name": "Jaydon Frankie",
+        "avatar": "http://192.168.117.130:19000/demo/41f7158d44c98b89a4f47c62a738ea39"
+      }
+    ],
+    "type": "ONE_TO_ONE",
+    "unreadCount": 0,
+    "messages": [
+      {
+        "id": "0082596802a681008d44bb4234028f61",
+        "contentType": "text",
+        "body": "你很低啊谁都爱哦",
+        "attachments": null,
+        "createdAt": "2022-05-13T15:12:39.000+00:00",
+        "senderId": "0151ea00a414e445bd7130c27b284df8"
+      },
+      {
+        "id": "0151ea00a414e445bd7130c27b284df8",
+        "contentType": "text",
+        "body": "i毒害嘎斯u的hi偶",
+        "attachments": null,
+        "createdAt": "2022-05-13T15:13:29.000+00:00",
+        "senderId": "0082596802a681008d44bb4234028f61"
+      }
+    ]
+  }
+}
