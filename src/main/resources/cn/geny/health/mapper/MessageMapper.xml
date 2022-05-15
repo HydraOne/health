@@ -9,9 +9,10 @@
     <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
     <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
     <result column="MSG" jdbcType="VARCHAR" property="msg" />
+    <result column="CONTENT_TYPE" jdbcType="VARCHAR" property="contentType" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    ID, TO_USER, CREATE_BY, CREATE_TIME, MSG
+    ID, TO_USER, CREATE_BY, CREATE_TIME, MSG, CONTENT_TYPE
   </sql>
 </mapper>

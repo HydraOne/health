@@ -11,6 +11,7 @@ import cn.geny.health.service.impl.UserService;
 import cn.geny.health.utils.SecurityUtils;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +36,7 @@ public class MessageService extends ServiceImpl<MessageMapper, Message> {
         message.setId(messageBO.getId());
         message.setMsg(messageBO.getBody());
         message.setToUser(messageBO.getConversationId());
+        message.setContentType(messageBO.getContentType());
         return this.save(message);
     }
 
@@ -66,7 +68,8 @@ public class MessageService extends ServiceImpl<MessageMapper, Message> {
                 messageBO.setSenderId(message.getCreateBy());
                 messageBO.setId(message.getToUser());
                 messageBO.setCreatedAt(message.getCreateTime());
-                messageBO.setContentType("text");
+                String contentType = message.getContentType();
+                messageBO.setContentType(StringUtils.isNotBlank(contact)?contentType:"text");
                 messageBO.setBody(message.getMsg());
                 return messageBO;
             }).collect(Collectors.toList());

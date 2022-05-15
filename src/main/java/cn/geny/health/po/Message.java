@@ -7,10 +7,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-/** 
+/**
  * TODO
+ *
  * @author wangjiahao
- * @date 2022/5/14 23:16
+ * @date 2022/5/15 14:51
  */
 @Data
 @AllArgsConstructor
@@ -46,4 +47,10 @@ public class Message {
      */
     @TableField(value = "MSG")
     private String msg;
+
+    /**
+     * 内容类型
+     */
+    @TableField(value = "CONTENT_TYPE")
+    private String contentType;
 }

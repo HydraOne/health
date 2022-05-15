@@ -41,8 +41,6 @@ public class ChatController {
     MessageService messageService;
 
 
-
-
     @GetMapping("/conversations")
     public AjaxResult conversations() {
         return getFileAjaxResult("conversations.json");
