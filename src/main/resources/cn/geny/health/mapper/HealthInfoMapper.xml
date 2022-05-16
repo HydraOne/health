@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.geny.health.mapper.HealthInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.geny.health.po.HealthInfo">
+    <!--@mbg.generated-->
+    <!--@Table health_info-->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="PID" jdbcType="VARCHAR" property="pid" />
+    <result column="DETAILS" jdbcType="LONGVARCHAR" property="details" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, PID, DETAILS, REMARKS, CREATE_BY, CREATE_TIME
+  </sql>
+</mapper>
