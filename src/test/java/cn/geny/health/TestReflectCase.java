@@ -29,4 +29,10 @@ public class TestReflectCase {
         System.out.println(CheckType.Group);
     }
 
+
+    @Test
+    public void testCase(){
+        long tmp = 2565295058157157651L;
+    }
+
 }

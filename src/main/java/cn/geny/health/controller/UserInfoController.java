@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  * @date 2022/5/4 22:00
  */
 @RestController
-@RequestMapping("userInfo")
+@RequestMapping("/userInfo")
 public class UserInfoController {
 
     @Autowired
@@ -31,6 +31,11 @@ public class UserInfoController {
     public AjaxResult getUserInfoList(@RequestBody QueryBody<UserInfo> queryBody){
         QueryWrapper<UserInfo> queryWrapper = QueryProducer.me().generatePageQuery(queryBody, UserInfo.class);
         return AjaxResult.success().put("usersInfo",userInfoService.list(queryWrapper));
+    }
+
+    @GetMapping("/getUserByName")
+    public AjaxResult getUserByName(@RequestParam String name){
+        return AjaxResult.success().put("users",userInfoService.getUserByName(name));
     }
 
     @PutMapping("/put")
