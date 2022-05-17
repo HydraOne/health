@@ -25,6 +25,11 @@ public class HealthInfoController {
 
     @PutMapping("/add")
     public AjaxResult addInfo(@RequestBody HealthInfo healthInfo){
-        return AjaxResult.success().put("healthInfos",healthInfoService.save(healthInfo));
+        return AjaxResult.success().put("healthInfos",healthInfoService.saveOrUpdate(healthInfo));
+    }
+
+    @GetMapping("/get/{id}")
+    public AjaxResult getInfo(@PathVariable("id") String id){
+        return AjaxResult.success().put("healthInfo",healthInfoService.getHealthInfo(id));
     }
 }

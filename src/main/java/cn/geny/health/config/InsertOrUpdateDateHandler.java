@@ -24,7 +24,11 @@ public class InsertOrUpdateDateHandler implements MetaObjectHandler {
     //修改时的填充策略
     @Override
     public void updateFill(MetaObject metaObject) {
+        this.setFieldValByName("createTime", new Date(), metaObject);
         this.setFieldValByName("updateTime", new Date(), metaObject);
+        Account currentUser = SecurityUtils.getLoginUser();
+        this.setFieldValByName("createBy", currentUser.getId(),metaObject);
+        this.setFieldValByName("updateBy", currentUser.getId(),metaObject);
     }
 
 }

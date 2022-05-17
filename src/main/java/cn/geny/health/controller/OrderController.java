@@ -41,6 +41,11 @@ public class OrderController {
         return success;
     }
 
+    @GetMapping("/getResult/{id}")
+    public AjaxResult getResult(@PathVariable("id") String id) {
+        return null;
+    }
+
     @DeleteMapping("/del/{id}")
     public AjaxResult del(@PathVariable("id") String id) {
         if (orderService.removeById(id)) {

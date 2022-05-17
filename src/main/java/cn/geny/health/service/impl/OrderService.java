@@ -6,7 +6,6 @@ import cn.geny.health.mapper.OrderMapper;
 import cn.geny.health.po.Association;
 import cn.geny.health.po.Order;
 import cn.geny.health.po.UserInfo;
-import cn.geny.health.service.UserInfoService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

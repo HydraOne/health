@@ -2,6 +2,7 @@ package cn.geny.health.service.impl;
 
 import cn.geny.health.mapper.AccountMapper;
 import cn.geny.health.po.Account;
+import cn.geny.health.utils.SecurityUtils;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.slf4j.Logger;
@@ -79,5 +80,11 @@ public class UserService extends ServiceImpl<AccountMapper, Account> implements 
     {
         List<GrantedAuthority> auths = AuthorityUtils.commaSeparatedStringToAuthorityList("role");
         return new org.springframework.security.core.userdetails.User(user.getName(),user.getPwd(),auths);
+    }
+
+    public String getCurrentUserRole()
+    {
+        Account account = SecurityUtils.getLoginUser();
+        return account.getRole();
     }
 }

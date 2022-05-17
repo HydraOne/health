@@ -57,13 +57,9 @@ public class UserController {
         return null;
     }
 
-    @PutMapping("/add")
-    public AjaxResult putUser(@RequestBody Account account) {
-        boolean save = userService.save(account);
-        if (save) {
-            return AjaxResult.success().put("test", null);
-        }
-        return AjaxResult.error();
+    @GetMapping("/getCurrentUserRole")
+    public AjaxResult getCurrentUserRole() {
+        return AjaxResult.success().put("role",userService.getCurrentUserRole());
     }
 
 }

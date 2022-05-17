@@ -7,7 +7,7 @@ import cn.geny.health.bo.User;
 import cn.geny.health.common.AjaxResult;
 import cn.geny.health.po.Account;
 import cn.geny.health.po.Message;
-import cn.geny.health.service.MessageService;
+import cn.geny.health.service.impl.MessageService;
 import cn.geny.health.service.impl.UserService;
 import cn.geny.health.utils.SecurityUtils;
 import com.alibaba.fastjson.JSONObject;

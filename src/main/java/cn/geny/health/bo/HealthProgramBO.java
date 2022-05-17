@@ -1,6 +1,7 @@
 package cn.geny.health.bo;
 
 import cn.geny.health.po.HealthProgram;
+import cn.geny.health.po.UserInfo;
 import lombok.Data;
 
 /** 
@@ -10,5 +11,5 @@ import lombok.Data;
  */
 @Data
 public class HealthProgramBO extends HealthProgram {
-    private String name;
+    private UserInfo userInfo;
 }

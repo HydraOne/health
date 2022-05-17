@@ -45,7 +45,7 @@ public class QueryBody<E> {
     @JsonAlias("pageSize")
     private int pageNum;
 
-    @JsonAlias("pageSize")
+    @JsonAlias({"pageSize"})
     private int pageSize;
 
     @JsonAlias("conditions")

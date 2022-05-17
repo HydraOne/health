@@ -1,4 +1,4 @@
-package cn.geny.health.service;
+package cn.geny.health.service.impl;
 
 import cn.geny.health.bo.ConversationBO;
 import cn.geny.health.bo.MessageBO;

@@ -2,12 +2,9 @@ package cn.geny.health.controller;
 
 import cn.geny.health.bo.HealthResultsBO;
 import cn.geny.health.common.AjaxResult;
-import cn.geny.health.service.CheckResultService;
+import cn.geny.health.service.impl.CheckResultService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * TODO
@@ -28,5 +25,10 @@ public class CheckResultController {
             return AjaxResult.success();
         }
         return AjaxResult.error();
+    }
+
+    @GetMapping("/get/{id}")
+    public AjaxResult getCheckResultById(@PathVariable String id) {
+        return AjaxResult.success().put("details",checkResultService.getCheckResultByOrderId(id));
     }
 }

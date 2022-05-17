@@ -1,4 +1,4 @@
-package cn.geny.health.service;
+package cn.geny.health.service.impl;
 
 import cn.geny.health.mapper.UserInfoMapper;
 import cn.geny.health.po.UserInfo;

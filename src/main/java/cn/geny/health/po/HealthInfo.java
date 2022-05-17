@@ -44,12 +44,12 @@ public class HealthInfo {
     /**
      * 创建人
      */
-    @TableField(value = "CREATE_BY",fill = FieldFill.INSERT)
+    @TableField(value = "CREATE_BY",fill = FieldFill.INSERT_UPDATE)
     private String createBy;
 
     /**
      * 创建时间
      */
-    @TableField(value = "CREATE_TIME",fill = FieldFill.INSERT)
+    @TableField(value = "CREATE_TIME",fill = FieldFill.INSERT_UPDATE)
     private Date createTime;
 }

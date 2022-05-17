@@ -4,7 +4,7 @@ import cn.geny.health.common.AjaxResult;
 import cn.geny.health.common.QueryProducer;
 import cn.geny.health.model.QueryBody;
 import cn.geny.health.po.UserInfo;
-import cn.geny.health.service.UserInfoService;
+import cn.geny.health.service.impl.UserInfoService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

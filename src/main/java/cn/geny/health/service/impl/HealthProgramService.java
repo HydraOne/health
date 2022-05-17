@@ -4,7 +4,6 @@ import cn.geny.health.bo.HealthProgramBO;
 import cn.geny.health.mapper.HealthProgramMapper;
 import cn.geny.health.po.HealthProgram;
 import cn.geny.health.po.UserInfo;
-import cn.geny.health.service.UserInfoService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
@@ -36,8 +35,17 @@ public class HealthProgramService extends ServiceImpl<HealthProgramMapper, Healt
         return list.stream().map(item -> {
             HealthProgramBO healthProgramBO = new HealthProgramBO();
             BeanUtils.copyProperties(item, healthProgramBO);
-            healthProgramBO.setName(infosMap.get(item.getPid()).getName());
+            healthProgramBO.setUserInfo(infosMap.get(item.getPid()));
             return healthProgramBO;
         }).collect(Collectors.toList());
+    }
+
+    public HealthProgramBO getHealthProgram(String id){
+        HealthProgram healthInfo = this.getById(id);
+        UserInfo userInfo = userInfoService.getById(healthInfo.getPid());
+        HealthProgramBO healthInfoBO = new HealthProgramBO();
+        BeanUtils.copyProperties(healthInfo, healthInfoBO);
+        healthInfoBO.setUserInfo(userInfo);
+        return healthInfoBO;
     }
 }

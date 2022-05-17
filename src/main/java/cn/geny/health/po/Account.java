@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
  * TODO
  *
  * @author wangjiahao
- * @date 2022/3/6 0:10
+ * @date 2022/5/17 12:58
  */
 @Data
 @AllArgsConstructor
@@ -23,7 +23,7 @@ public class Account {
     /**
      * 主键ID
      */
-    @TableId(value = "ID", type = IdType.ASSIGN_UUID)
+    @TableId(value = "ID", type = IdType.INPUT)
     private String id;
 
     /**
@@ -64,4 +64,9 @@ public class Account {
     @TableField(value = "`STATUS`")
     private Integer status;
 
+    /**
+     * 当前用户角色
+     */
+    @TableField(value = "`ROLE`")
+    private String role;
 }
