@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.geny.health.mapper.HealthTrendMapper">
+  <resultMap id="BaseResultMap" type="cn.geny.health.po.HealthTrend">
+    <!--@mbg.generated-->
+    <!--@Table health_trend-->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="PID" jdbcType="VARCHAR" property="pid" />
+    <result column="TREND_INDEX" jdbcType="INTEGER" property="trendIndex" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, PID, TREND_INDEX, CREATE_TIME
+  </sql>
+</mapper>
